@@ -10,7 +10,6 @@ const store = configureStore({
 
 store.subscribe(() => {
     const state = store.getState();
-    console.log(state);
     localStorage.setItem("CARD_INFO", JSON.stringify(state.cards));
 });
 
