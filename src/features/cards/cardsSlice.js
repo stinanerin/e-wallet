@@ -1,6 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchData } from "../../services/api";
 
+const getStateFromLocalStorage = () => {
+    const localStorageItem = localStorage.getItem("CARD_INFO");
+
+    return localStorageItem ? JSON.parse(localStorageItem) : {};
+};
+
+const initialState = {
+    user: getStateFromLocalStorage()?.user || null,
+    cards: getStateFromLocalStorage()?.cards || [],
+    activeCard: null,
+    status: null,
+};
+
 export const getRandomUser = createAsyncThunk(
     "cardSlice/getRandomUser",
     async (route) => {
@@ -8,14 +21,10 @@ export const getRandomUser = createAsyncThunk(
         return res.data.results[0].name;
     }
 );
+
 const cardSlice = createSlice({
     name: "cards",
-    initialState: {
-        user: null,
-        cards: [],
-        activeCard: null,
-        status: null,
-    },
+    initialState,
     reducers: {
         setActiveCard: (state, action) => {
             state.activeCard = action.payload;
