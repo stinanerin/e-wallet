@@ -3,18 +3,18 @@ import { fetchData } from "../../services/api";
 
 export const getRandomUser = createAsyncThunk(
     "cardSlice/getRandomUser",
-    async () => {
-        const res = await fetchData("https://randomuser.me/api");
-        return res;
+    async (route) => {
+        const res = await fetchData(route);
+        return res.data.results[0].name;
     }
 );
-
 const cardSlice = createSlice({
     name: "cards",
     initialState: {
         user: null,
         cards: [],
         activeCard: null,
+        status: null,
     },
     reducers: {
         setActiveCard: (state, action) => {
@@ -33,11 +33,12 @@ const cardSlice = createSlice({
             state.cards = filteredCards;
         },
     },
-    extrareducers: {
+    extraReducers: {
         [getRandomUser.pending]: (state, action) => {
             state.status = "Loading...";
         },
         [getRandomUser.fulfilled]: (state, action) => {
+            state.user = action.payload;
             state.status = "Success";
         },
         [getRandomUser.rejected]: (state, action) => {
