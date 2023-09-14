@@ -1,4 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { fetchData } from "../../services/api";
+
+export const getRandomUser = createAsyncThunk(
+    "cardSlice/getRandomUser",
+    async () => {
+        const res = await fetchData("https://randomuser.me/api");
+        return res;
+    }
+);
 
 const cardSlice = createSlice({
     name: "cards",
@@ -22,6 +31,17 @@ const cardSlice = createSlice({
             );
             // Pga filter muterar ej ursprungsarrayen
             state.cards = filteredCards;
+        },
+    },
+    extrareducers: {
+        [getRandomUser.pending]: (state, action) => {
+            state.status = "Loading...";
+        },
+        [getRandomUser.fulfilled]: (state, action) => {
+            state.status = "Success";
+        },
+        [getRandomUser.rejected]: (state, action) => {
+            state.status = "Failed";
         },
     },
 });
