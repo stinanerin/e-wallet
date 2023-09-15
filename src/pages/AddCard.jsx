@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { splitArrIntoChunks } from "../utils/helpers";
 
 export const AddCard = () => {
-    const [cardNum, setCardNum] = useState([1, 5, 6, 7, 4, 4, 4, 4]);
+    const [cardNum, setCardNum] = useState([]);
 
     const [cardNumDisplay, setCardNumDisplay] = useState([]);
 

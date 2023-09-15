@@ -20,7 +20,6 @@ export const Form = ({ setCardNum, cardNum }) => {
                             const newInputArr = e.target.value.split("");
                             if (prevState.length > newInputArr.length) {
                                 console.log("user removed a digit");
-                                console.log(newInputArr);
                                 return newInputArr;
                             }
                             if (prevState.length >= 16) {
