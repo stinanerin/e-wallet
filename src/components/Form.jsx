@@ -41,7 +41,7 @@ export const Form = ({ setCardNum, cardNum }) => {
                     htmlFor="cardNumber"
                     className="block uppercase text-text-default text-xs font-bold mb-2 "
                 >
-                    Car number
+                    Card number
                 </label>
                 <input
                     id="cardNumber"

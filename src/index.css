@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.svg-icon {
+    fill: white;
+    
+    background-color: var(--color-text-contrast)
+}
 
 @layer base {
     :root {
