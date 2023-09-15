@@ -8,13 +8,16 @@ export default {
         extend: {
             colors: {
                 bkg: "hsl(var(--color-bg) / <alpha-value>)",
-                text: "hsl(var(--color-text) / <alpha-value>)",
-                text_contrast:
-                    "hsl(var(--color-text-contrast) / <alpha-value>)",
-                text_low_contrast:
-                    "hsl(var(--color-text-low-contrast) / <alpha-value>)",
-                placeholder:
-                    "hsl(var(--color-text-low-contrast) / <alpha-value>)",
+                text: {
+                    default: "hsla(var(--color-text) /  <alpha-value>)",
+                    contrast:
+                        "hsla(var(--color-text-contrast) /  <alpha-value>)",
+                    low: {
+                        contrast: "hsla(var(--color-text-low-contrast) / 0.6)",
+                        placeholder:
+                            "hsla(var(--color-text-low-contrast) / <alpha-value>)",
+                    },
+                },
                 elem_bg: "hsl(var(--color-text-contrast) / 0.5)",
                 border: "hsl(var(--color-elem-border) / <alpha-value>)",
                 primary: "hsl(var(--color-primary) / <alpha-value>)",
@@ -28,9 +31,11 @@ export default {
                     300: "hsl(var(--color-grey-300) / <alpha-value>)",
                 },
 
-                transparent_0: "hsl(var(--color-text-contrast) / 0.233)",
-                transparent_1: "hsl(var(--color-text-contrast) / 0.3)",
-                transparent_2: "hsl(var(--color-text-contrast) / 0.7)",
+                transparent: {
+                    0: "hsl(var(--color-text-contrast) / 0.233)",
+                    1: "hsl(var(--color-text-contrast) / 0.333)",
+                    2: "hsl(var(--color-text-contrast) / 0.4)",
+                },
             },
         },
         screens: {

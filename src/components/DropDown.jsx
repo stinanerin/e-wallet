@@ -8,16 +8,16 @@ export const DropDown = ({ optionsObj, setSelectedValue }) => {
     };
 
     return (
-        <div className="flex flex-col">
+        <>
             <label
-                className="uppercase text-text text-sm font-bold mb-2"
+                className="block uppercase text-text text-xs font-bold mb-2"
                 htmlFor={`filterBy${filter}`}
             >
                 {filter}:
             </label>
             <select
                 id={`filterBy${filter}`}
-                className="rounded-md bg-elem_bg py-1 px-2 sm:w-3/4"
+                className="rounded-md bg-elem_bg py-1 px-2 sm:w-3/4 text-text mb-4 shadow-md"
                 onChange={handleFilter}
             >
                 <option key={"all"}>All</option>
@@ -25,6 +25,6 @@ export const DropDown = ({ optionsObj, setSelectedValue }) => {
                     return <option key={opt + index}>{opt}</option>;
                 })}
             </select>
-        </div>
+        </>
     );
 };
