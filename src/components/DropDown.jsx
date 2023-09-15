@@ -1,6 +1,5 @@
-export const DropDown = ({ optionsObj, setSelectedValue }) => {
+export const DropDown = ({ optionsObj, isReq, setSelectedValue }) => {
     const { filter, arr } = optionsObj;
-
     const handleFilter = (e) => {
         let selectedOption = e.target.value;
         if (selectedOption === "All") selectedOption = "";
@@ -17,8 +16,9 @@ export const DropDown = ({ optionsObj, setSelectedValue }) => {
             </label>
             <select
                 id={`filterBy${filter}`}
-                className="rounded-md bg-elem_bg py-1 px-2 sm:w-3/4 text-text  shadow-md"
+                className="rounded-md bg-elem_bg py-1 px-2 w-full sm:w-3/4 text-text text-sm shadow-md"
                 onChange={handleFilter}
+                required={isReq}
             >
                 <option key={"all"}>All</option>
                 {arr.map((opt, index) => {
