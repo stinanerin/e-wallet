@@ -15,8 +15,13 @@ export const Form = ({ setCardNum }) => {
                 className="rounded-md bg-elem_bg py-1 px-2 sm:w-3/4 text-text mb-4 shadow-md"
                 onChange={(e) => {
                     setCardNum((prevState) => {
-                        const arr = e.target.value.split("");
-                        const lastDigit = arr.pop();
+                        const newInputArr = e.target.value.split("");
+                        if (prevState.length > newInputArr.length) {
+                            console.log("user removed a digit");
+                            setCardNum(newInputArr);
+                            return;
+                        }
+                        const lastDigit = newInputArr.pop();
                         return [...prevState, lastDigit];
                     });
                 }}
