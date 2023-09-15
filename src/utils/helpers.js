@@ -8,6 +8,5 @@ export const splitArrIntoChunks = (arr, chunkSize) => {
         return acc;
     }, []);
 
-    console.log(resultArray);
     return resultArray;
 };

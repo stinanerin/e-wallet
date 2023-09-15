@@ -29,6 +29,7 @@ export const AddCard = () => {
 
             <div className="h-32 px-4 py-6 bg-gray-900 rounded shadow-lg ">
                 <img src={chipImage} alt="" className="w-7" />
+
                 <p className="text-2xl text-text-contrast flex gap-3">
                     {cardNumDisplay.map((chunk, i) => {
                         return <span key={chunk + i}>{chunk}</span>;
