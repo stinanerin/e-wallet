@@ -1,3 +1,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary-400: 203 69% 60%;
+        --color-primary-500: 203 69% 50%;
+
+        --color-secondary: 208 7% 46%;
+
+        --color-warning-400: 33 93% 60%;
+        --color-warning-500: 33 93% 50%;
+        --color-warning-700: 33 100% 45%;
+
+        --color-danger-400: 355 97% 60%;
+        --color-danger-500: 355 97% 50%;
+
+        --color-blue-100: 220 47% 94%;
+        --color-blue-800: 250 53% 24%;
+
+
+        --color-grey-50: 0 0% 98%;
+        --color-grey-100: 0 0% 93%;
+        --color-grey-200: 0 0% 88%;
+        --color-grey-300: 0 0% 80%;
+        --color-grey-400: 0 0% 70%;
+        --color-grey-500: 0 0% 65%;
+        --color-grey-600: 0 0% 45%;
+        --color-grey-800: 0 0% 16%;
+        --color-grey-900: 0 0% 10%;
+
+        --color-white:  0 0% 100%;
+        --color-black:  0 0% 0%;
+
+
+        /* !----------------- */
+
+
+        --color-warning: var(--color-warning-500);
+        --color-primary: var(--color-primary-500);
+        --color-danger:  var(--color-danger-500);
+
+
+        --color-elem-bg: var(--color-grey-100);
+        --color-elem-border: var(--color-grey-500);
+
+        /* --color-warning-contrast: var(--color-warning-700); */
+
+        --color-bg: var(--color-blue-100);
+        --color-text: var(--color-black);
+        --color-text-contrast: var(--color-white);
+
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+
+            --color-elem-bg: var(--color-grey-800);
+            --color-elem-border: var(--color-grey-500);
+
+            --color-bg: var(--color-grey-900);
+            --color-text: 0 0% 100%;
+            --color-text-contrast: var(--color-black);
+
+            --color-warning: var(--color-warning-400);
+            --color-primary: var(--color-primary-400);
+            --color-danger:  var(--color-danger-400);
+
+
+        }
+    }
+    :root[data-theme="dark"] {
+        
+
+            --color-elem-bg: var(--color-grey-800);
+            --color-elem-border: var(--color-grey-500);
+
+            --color-bg: var(--color-blue-800);
+            --color-text: 0 0% 100%;
+            --color-text-low-contrast: var(--color-grey-600);
+
+            --color-warning: var(--color-warning-400);
+            --color-primary: var(--color-primary-400);
+            --color-danger:  var(--color-danger-400);
+
+
+
+    }
+  }
+
+* {
+    outline: 1px solid pink;
+}
