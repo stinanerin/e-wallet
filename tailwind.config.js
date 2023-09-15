@@ -11,9 +11,11 @@ export default {
                 text: "hsl(var(--color-text) / <alpha-value>)",
                 text_contrast:
                     "hsl(var(--color-text-contrast) / <alpha-value>)",
+                text_low_contrast:
+                    "hsl(var(--color-text-low-contrast) / <alpha-value>)",
                 placeholder:
                     "hsl(var(--color-text-low-contrast) / <alpha-value>)",
-                elem_bg: "hsl(var(--color-elem-bg) / <alpha-value>)",
+                elem_bg: "hsl(var(--color-text-contrast) / 0.5)",
                 border: "hsl(var(--color-elem-border) / <alpha-value>)",
                 primary: "hsl(var(--color-primary) / <alpha-value>)",
                 secondary: "hsl(var(--color-secondary) / <alpha-value>)",
@@ -25,6 +27,10 @@ export default {
                     100: "hsl(var(--color-grey-100) / <alpha-value>)",
                     300: "hsl(var(--color-grey-300) / <alpha-value>)",
                 },
+
+                transparent_0: "hsl(var(--color-text-contrast) / 0.233)",
+                transparent_1: "hsl(var(--color-text-contrast) / 0.3)",
+                transparent_2: "hsl(var(--color-text-contrast) / 0.7)",
             },
         },
         screens: {

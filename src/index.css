@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
     :root {
         --color-primary-400: 203 69% 60%;
@@ -16,8 +18,8 @@
         --color-danger-400: 355 97% 60%;
         --color-danger-500: 355 97% 50%;
 
-        --color-blue-100: 220 47% 94%;
-        --color-blue-800: 250 53% 24%;
+        --color-blue-400: 219 100% 70%;
+        --color-blue-800: 219 100% 14%;
 
 
         --color-grey-50: 0 0% 98%;
@@ -27,6 +29,7 @@
         --color-grey-400: 0 0% 70%;
         --color-grey-500: 0 0% 65%;
         --color-grey-600: 0 0% 45%;
+        --color-grey-700: 0 0% 30%;
         --color-grey-800: 0 0% 16%;
         --color-grey-900: 0 0% 10%;
 
@@ -47,9 +50,10 @@
 
         /* --color-warning-contrast: var(--color-warning-700); */
 
-        --color-bg: var(--color-blue-100);
+        --color-bg: var(--color-blue-400);
         --color-text: var(--color-black);
         --color-text-contrast: var(--color-white);
+        --color-text-low-contrast: var(--color-grey-700);
 
     }
     @media (prefers-color-scheme: dark) {
@@ -88,6 +92,6 @@
     }
   }
 
-* {
+/* * {
     outline: 1px solid pink;
-}
+} */
