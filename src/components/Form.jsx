@@ -16,11 +16,12 @@ export const Form = ({ setCardNum, cardNum }) => {
                     className="rounded-md bg-elem_bg py-1 px-2 sm:w-3/4 text-text  shadow-md"
                     onChange={(e) => {
                         setCardNum((prevState) => {
+                            console.log(prevState);
                             const newInputArr = e.target.value.split("");
                             if (prevState.length > newInputArr.length) {
                                 console.log("user removed a digit");
-                                setCardNum(newInputArr);
-                                return;
+                                console.log(newInputArr);
+                                return newInputArr;
                             }
                             if (prevState.length >= 16) {
                                 console.log("max limit reached");
