@@ -17,7 +17,7 @@ export const DropDown = ({ optionsObj, setSelectedValue }) => {
             </label>
             <select
                 id={`filterBy${filter}`}
-                className="rounded-md bg-elem_bg py-1 px-2 sm:w-3/4 text-text mb-4 shadow-md"
+                className="rounded-md bg-elem_bg py-1 px-2 sm:w-3/4 text-text  shadow-md"
                 onChange={handleFilter}
             >
                 <option key={"all"}>All</option>

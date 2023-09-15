@@ -17,7 +17,7 @@ export const AddCard = () => {
                 </p>
             </div>
 
-            <Form setCardNum={setCardNum} />
+            <Form cardNum={cardNum} setCardNum={setCardNum} />
         </div>
     );
 };
