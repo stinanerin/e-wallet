@@ -16,15 +16,15 @@ export const Form = ({ setCardNum, cardNum }) => {
                     className="rounded-md bg-elem_bg py-1 px-2 sm:w-3/4 text-text  shadow-md"
                     onChange={(e) => {
                         setCardNum((prevState) => {
-                            if (prevState.length >= 16) {
-                                console.log("max limit reached");
-                                return prevState;
-                            }
                             const newInputArr = e.target.value.split("");
                             if (prevState.length > newInputArr.length) {
                                 console.log("user removed a digit");
                                 setCardNum(newInputArr);
                                 return;
+                            }
+                            if (prevState.length >= 16) {
+                                console.log("max limit reached");
+                                return prevState;
                             }
                             const lastDigit = newInputArr.pop();
                             return [...prevState, lastDigit];
