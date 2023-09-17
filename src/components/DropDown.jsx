@@ -20,7 +20,9 @@ export const DropDown = ({ optionsObj, isReq, setSelectedValue }) => {
                 onChange={handleFilter}
                 required={isReq}
             >
-                <option key={"all"}>All</option>
+                <option key={"all"} value="">
+                    All
+                </option>
                 {arr.map((opt, index) => {
                     return <option key={opt + index}>{opt}</option>;
                 })}

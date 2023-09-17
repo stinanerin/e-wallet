@@ -16,23 +16,28 @@ export const AddCard = () => {
         cardMonth: [],
         cardYear: [],
         cardCvc: [],
-        // Add more fields if needed
+        cardVendor: "",
     });
 
     const {
         user: { first, last },
     } = useSelector((state) => state.cards);
 
+    const isFormDataValid = () => {
+        return (
+            formData.cardNum.length === 16 &&
+            formData.cardMonth.length === 2 &&
+            formData.cardYear.length === 2 &&
+            formData.cardCvc.length === 3 &&
+            formData.cardVendor !== ""
+        );
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("hej");
-        //todo! validation that they are all x amount
-        if (
-            formData.cardNum.includes("X") ||
-            formData.cardMonth.includes("X") ||
-            formData.cardYear.includes("X")
-        ) {
-            //todo! Display an error message or take appropriate action
+        if (!isFormDataValid()) {
+            //todo! error msg
+            console.log("Form data is invalid");
             return;
         }
 
