@@ -1,5 +1,5 @@
 import { DropDown } from "../components/DropDown";
-import { cardCompanies } from "../config/cardCompanies";
+import { cardVendors } from "../config/cardVendors";
 import { useSelector } from "react-redux";
 
 import { blockInvalidChar } from "../utils/helpers/";
@@ -157,7 +157,7 @@ export const Form = ({ formData, setFormData, handleSubmit }) => {
             <DropDown
                 optionsObj={{
                     filter: "Choose vendor",
-                    arr: cardCompanies,
+                    arr: cardVendors,
                 }}
                 isReq={true}
                 setSelectedValue={(value) =>
