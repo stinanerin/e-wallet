@@ -1,8 +1,11 @@
 import { Form } from "../components/Form";
 import chipSvg from "../assets/icons/chip2.svg";
 import signalSvg from "../assets/icons/signal.svg";
+import amex from "../assets/logos/amex.svg";
+import mastercard from "../assets/logos/mastercard.svg";
+import visa from "../assets/logos/visa.svg";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addCard } from "../features/cards/cardsSlice";
@@ -18,6 +21,7 @@ export const AddCard = () => {
         cardCvc: [],
         cardVendor: "",
     });
+    const [vendorSVG, setVendorSVG] = useState(null); // Initialize with null
 
     const {
         user: { first, last },
@@ -59,6 +63,24 @@ export const AddCard = () => {
         //todo clear form and maybe navigate user to home page
     };
 
+    useEffect(() => {
+        console.log(formData.cardVendor);
+        switch (formData.cardVendor) {
+            case "Amex":
+                setVendorSVG(amex);
+                break;
+            case "Visa":
+                setVendorSVG(visa);
+                break;
+            case "MasterCard":
+                setVendorSVG(mastercard);
+                break;
+            default:
+                setVendorSVG(null);
+                break;
+        }
+    }, [formData.cardVendor]);
+
     return (
         <div>
             {
@@ -67,14 +89,16 @@ export const AddCard = () => {
 
             <div className=" px-4 py-6 bg-gray-400 rounded shadow-lg ">
                 <div className="flex justify-between svg-icon">
-                    <img src={signalSvg} alt="" className="w-7 " />
+                    <img src={signalSvg} alt="#" className="w-7 " />
                     {
                         //todo! -change to credit card company
+                        vendorSVG && (
+                            <img src={vendorSVG} alt="#" className="w-10 " />
+                        )
                     }
-                    <img src={chipSvg} alt="" className="w-7 " />
                 </div>
 
-                <img src={chipSvg} alt="" className="w-7 mb-3 mt-1" />
+                <img src={chipSvg} alt="#" className="w-7 mb-3 mt-1" />
 
                 <p className="text-2xl text-text-contrast flex gap-3">
                     {generateDisplayFormat(formData.cardNum, 16, 4).map(
