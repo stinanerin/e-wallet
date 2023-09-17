@@ -10,3 +10,8 @@ export const splitArrIntoChunks = (arr, chunkSize) => {
 
     return resultArray;
 };
+
+export const blockInvalidChar = (string) => {
+    const cleansedValue = string.replace(/\D/g, "");
+    return cleansedValue;
+};

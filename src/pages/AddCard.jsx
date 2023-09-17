@@ -13,10 +13,10 @@ export const AddCard = () => {
 
     const [cardNumDisplay, setCardNumDisplay] = useState([]);
     const [cardNum, setCardNum] = useState([]);
-    const [cardMonth, setCardMonth] = useState(null);
-    const [cardYear, setCardYear] = useState(null);
-    const [cardCvc, setCardCvc] = useState(null);
-    const [cardVendor, setCardVendor] = useState(null);
+    const [cardMonth, setCardMonth] = useState([]);
+    const [cardYear, setCardYear] = useState([]);
+    const [cardCvc, setCardCvc] = useState([]);
+    const [cardVendor, setCardVendor] = useState([]);
 
     const {
         user: { first, last },
@@ -98,8 +98,11 @@ export const AddCard = () => {
                 cardNum={cardNum}
                 setCardNum={setCardNum}
                 setCardMonth={setCardMonth}
+                cardMonth={cardMonth}
                 setCardYear={setCardYear}
+                cardYear={cardYear}
                 setCardCvc={setCardCvc}
+                cardCvc={cardCvc}
                 setCardVendor={setCardVendor}
                 handleSubmit={handleSubmit}
             />

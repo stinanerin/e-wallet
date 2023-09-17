@@ -2,30 +2,39 @@ import { DropDown } from "../components/DropDown";
 import { cardCompanies } from "../config/cardCompanies";
 import { useSelector } from "react-redux";
 
+import { blockInvalidChar } from "../utils/helpers/";
+
 export const Form = ({
     setCardNum,
     cardNum,
     setCardVendor,
     setCardMonth,
+    cardMonth,
     setCardYear,
+    cardYear,
     setCardCvc,
+    cardCvc,
     handleSubmit,
 }) => {
     const {
         user: { first, last },
     } = useSelector((state) => state.cards);
 
-    const handleInputChange = (e) => {
-        //todo! Fix so you can't enter -+., and so on
-        const inputValue = e.target.value;
+    const handleInputValidation = (inputValue, maxLength, setStateCallback) => {
+        // console.log("inputValue", inputValue);
+        const cleansedValue = blockInvalidChar(inputValue);
+        // console.log("cleansedValue", cleansedValue);
 
-        const newInputArr = inputValue.split("");
-        setCardNum((prevState) => {
+        if (cleansedValue === "" && inputValue !== "") return;
+
+        const newInputArr = cleansedValue.split("");
+
+        setStateCallback((prevState) => {
             if (prevState.length > newInputArr.length) {
                 console.log("user removed a digit");
                 return newInputArr;
             }
-            if (prevState.length >= 16) {
+            if (prevState.length >= maxLength) {
                 console.log("max limit reached");
                 return prevState;
             }
@@ -48,10 +57,12 @@ export const Form = ({
                 </label>
                 <input
                     id="cardNumber"
-                    type="number"
+                    type="text"
                     value={cardNum.join("")}
                     className="rounded-md bg-elem_bg py-1 px-2  w-full sm:w-3/4 text-text-default text-sm shadow-md"
-                    onChange={handleInputChange}
+                    onChange={(e) => {
+                        handleInputValidation(e.target.value, 16, setCardNum);
+                    }}
                     required
                 />
                 {
@@ -93,7 +104,14 @@ export const Form = ({
                             type="number"
                             className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2  w-full  text-text-default shadow-md"
                             required
-                            onChange={(e) => setCardMonth(e.target.value)}
+                            value={cardMonth.join("")}
+                            onChange={(e) => {
+                                handleInputValidation(
+                                    e.target.value,
+                                    2,
+                                    setCardMonth
+                                );
+                            }}
                         />
                     </div>
                     <p className="text-text-low-contrast font-bold">/</p>
@@ -109,7 +127,14 @@ export const Form = ({
                             type="number"
                             className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2  w-full  text-text-default shadow-md"
                             required
-                            onChange={(e) => setCardYear(e.target.value)}
+                            value={cardYear.join("")}
+                            onChange={(e) => {
+                                handleInputValidation(
+                                    e.target.value,
+                                    2,
+                                    setCardYear
+                                );
+                            }}
                         />
                     </div>
                 </div>
@@ -122,10 +147,18 @@ export const Form = ({
                     </label>
                     <input
                         id="cvc"
-                        type="number"
+                        type="text"
                         className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2 w-full text-text-default shadow-md"
                         required
-                        onChange={(e) => setCardCvc(e.target.value)}
+                        maxLength={3}
+                        value={cardCvc.join("")}
+                        onChange={(e) => {
+                            handleInputValidation(
+                                e.target.value,
+                                3,
+                                setCardCvc
+                            );
+                        }}
                     />
                 </div>
             </div>
