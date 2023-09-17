@@ -9,7 +9,18 @@ const getStateFromLocalStorage = () => {
 
 const initialState = {
     user: getStateFromLocalStorage()?.user || null,
-    cards: getStateFromLocalStorage()?.cards || [],
+    cards: getStateFromLocalStorage()?.cards || [
+        {
+            cvc: "098",
+            date: {
+                month: "12",
+                year: "2026",
+            },
+            number: [2, 3, 4, 4, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 5],
+            vendor: "Visa",
+            id: crypto.randomUUID(),
+        },
+    ],
     activeCard: null,
     status: null,
 };

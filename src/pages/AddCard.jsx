@@ -24,6 +24,7 @@ export const AddCard = () => {
     } = useSelector((state) => state.cards);
 
     const isFormDataValid = () => {
+        //todo -  make dynamic
         return (
             formData.cardNum.length === 16 &&
             formData.cardMonth.length === 2 &&
@@ -51,6 +52,7 @@ export const AddCard = () => {
             },
             cvc: formData.cardCvc.join(""),
             vendor: formData.cardVendor,
+            id: crypto.randomUUID(),
         };
         console.log(cardObj);
 
