@@ -6,14 +6,14 @@ import {
 } from "react-router-dom";
 
 import { Root } from "./pages/Root";
-import { Card } from "./pages/Card";
+import { Home } from "./pages/Home";
 import { AddCard } from "./pages/AddCard";
 
 function App() {
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route path="/" element={<Root />}>
-                <Route index element={<Card />} />
+                <Route index element={<Home />} />
                 <Route path="add" element={<AddCard />} />
             </Route>
         )
