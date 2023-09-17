@@ -42,7 +42,7 @@ export const Form = ({ formData, setFormData, handleSubmit }) => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="bg-gradient-to-b from-transparent-2 to-transparent-0 shadow-lg rounded px-8 pt-6 pb-8 my-4 "
+            className="bg-gradient-to-b from-transparent-1 to-transparent-0 shadow-lg rounded px-8 pt-6 pb-8 my-4 "
         >
             <div className="mb-4">
                 <label

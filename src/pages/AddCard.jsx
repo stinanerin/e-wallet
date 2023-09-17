@@ -35,6 +35,7 @@ export const AddCard = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         if (!isFormDataValid()) {
             //todo! error msg
             console.log("Form data is invalid");
@@ -60,8 +61,6 @@ export const AddCard = () => {
 
     return (
         <div>
-            <h2 className="font-bold">Add card</h2>
-
             {
                 //todo! CARD - break out
             }
@@ -104,6 +103,9 @@ export const AddCard = () => {
                     </div>
                 </div>
             </div>
+            <h2 className="font-bold text-center mt-4 uppercase">
+                Add new card
+            </h2>
 
             <Form
                 formData={formData}

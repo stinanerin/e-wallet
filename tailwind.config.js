@@ -33,8 +33,8 @@ export default {
                 },
 
                 transparent: {
-                    0: "hsl(var(--color-text-contrast) / 0.233)",
-                    1: "hsl(var(--color-text-contrast) / 0.333)",
+                    0: "hsl(var(--color-text-contrast) / 0.133)",
+                    1: "hsl(var(--color-text-contrast) / 0.233)",
                     2: "hsl(var(--color-text-contrast) / 0.4)",
                 },
             },
