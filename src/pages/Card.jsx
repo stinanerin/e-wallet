@@ -11,7 +11,9 @@ export const Card = () => {
 
     const dispatch = useDispatch();
 
-    const { user, status } = useSelector((state) => state.cards);
+    const { user, status, cards } = useSelector((state) => state.cards);
+
+    console.log(cards);
 
     useEffect(() => {
         !user && dispatch(getRandomUser("https://randomuser.me/api/"));
