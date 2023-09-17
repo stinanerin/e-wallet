@@ -15,3 +15,12 @@ export const blockInvalidChar = (string) => {
     const cleansedValue = string.replace(/\D/g, "");
     return cleansedValue;
 };
+
+export const generateDisplayFormat = (inputArray, maxLength, chunkNum) => {
+    const arr = [...inputArray];
+    while (arr.length < maxLength) {
+        arr.push("X");
+    }
+    if (chunkNum) return splitArrIntoChunks(arr, 4);
+    return arr;
+};

@@ -4,23 +4,12 @@ import { useSelector } from "react-redux";
 
 import { blockInvalidChar } from "../utils/helpers/";
 
-export const Form = ({
-    setCardNum,
-    cardNum,
-    setCardVendor,
-    setCardMonth,
-    cardMonth,
-    setCardYear,
-    cardYear,
-    setCardCvc,
-    cardCvc,
-    handleSubmit,
-}) => {
+export const Form = ({ formData, setFormData, handleSubmit }) => {
     const {
         user: { first, last },
     } = useSelector((state) => state.cards);
 
-    const handleInputValidation = (inputValue, maxLength, setStateCallback) => {
+    const handleInputValidation = (inputValue, maxLength, fieldName) => {
         // console.log("inputValue", inputValue);
         const cleansedValue = blockInvalidChar(inputValue);
         // console.log("cleansedValue", cleansedValue);
@@ -29,17 +18,24 @@ export const Form = ({
 
         const newInputArr = cleansedValue.split("");
 
-        setStateCallback((prevState) => {
-            if (prevState.length > newInputArr.length) {
+        setFormData((prevState) => {
+            if (prevState[fieldName].length > newInputArr.length) {
                 console.log("user removed a digit");
-                return newInputArr;
+                console.log(newInputArr);
+                return {
+                    ...prevState,
+                    [fieldName]: newInputArr,
+                };
             }
-            if (prevState.length >= maxLength) {
+            if (prevState[fieldName].length >= maxLength) {
                 console.log("max limit reached");
                 return prevState;
             }
             const lastDigit = newInputArr.pop();
-            return [...prevState, lastDigit];
+            return {
+                ...prevState,
+                [fieldName]: [...prevState[fieldName], lastDigit],
+            };
         });
     };
 
@@ -58,10 +54,10 @@ export const Form = ({
                 <input
                     id="cardNumber"
                     type="text"
-                    value={cardNum.join("")}
+                    value={formData.cardNum.join("")}
                     className="rounded-md bg-elem_bg py-1 px-2  w-full sm:w-3/4 text-text-default text-sm shadow-md"
                     onChange={(e) => {
-                        handleInputValidation(e.target.value, 16, setCardNum);
+                        handleInputValidation(e.target.value, 16, "cardNum");
                     }}
                     required
                 />
@@ -104,12 +100,12 @@ export const Form = ({
                             type="number"
                             className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2  w-full  text-text-default shadow-md"
                             required
-                            value={cardMonth.join("")}
+                            value={formData.cardMonth.join("")}
                             onChange={(e) => {
                                 handleInputValidation(
                                     e.target.value,
                                     2,
-                                    setCardMonth
+                                    "cardMonth"
                                 );
                             }}
                         />
@@ -127,12 +123,12 @@ export const Form = ({
                             type="number"
                             className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2  w-full  text-text-default shadow-md"
                             required
-                            value={cardYear.join("")}
+                            value={formData.cardYear.join("")}
                             onChange={(e) => {
                                 handleInputValidation(
                                     e.target.value,
                                     2,
-                                    setCardYear
+                                    "cardYear"
                                 );
                             }}
                         />
@@ -151,13 +147,9 @@ export const Form = ({
                         className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2 w-full text-text-default shadow-md"
                         required
                         maxLength={3}
-                        value={cardCvc.join("")}
+                        value={formData.cardCvc.join("")}
                         onChange={(e) => {
-                            handleInputValidation(
-                                e.target.value,
-                                3,
-                                setCardCvc
-                            );
+                            handleInputValidation(e.target.value, 3, "cardCvc");
                         }}
                     />
                 </div>
@@ -168,7 +160,9 @@ export const Form = ({
                     arr: cardCompanies,
                 }}
                 isReq={true}
-                setSelectedValue={setCardVendor}
+                setSelectedValue={(value) =>
+                    setFormData({ ...formData, cardVendor: value })
+                }
             />
             <button className="block bg-black px-4 py-2 border-2 border-black rounded-lg uppercase text-text-contrast text-sm font-bold my-4 hover:bg-text-contrast hover:text-text-default hover:border-text">
                 Add card
