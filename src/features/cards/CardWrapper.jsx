@@ -16,6 +16,16 @@ export const CardWrapper = ({ arr, user }) => {
             <p>Active card: {activeCard}</p>
 
             {arr.map((card) => {
+                if (card.id === activeCard) {
+                    console.log("match", card);
+                    return (
+                        <div key={card.id}>
+                            <CreditCard {...card} user={user} />
+                            <p>{card.id}</p>
+                        </div>
+                    );
+                }
+
                 return (
                     <div key={card.id}>
                         <CreditCard {...card} user={user} />
