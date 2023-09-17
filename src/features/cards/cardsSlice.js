@@ -45,7 +45,7 @@ const cardSlice = createSlice({
         },
         delCard: (state, action) => {
             const cardId = action.payload;
-            console.log(cardId);
+            console.log("cardId", cardId);
             const filteredCards = state.cards.filter(
                 (card) => card.id !== cardId
             );
