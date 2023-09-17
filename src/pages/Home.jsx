@@ -11,7 +11,9 @@ export const Home = () => {
 
     const dispatch = useDispatch();
 
-    const { user, status, cards } = useSelector((state) => state.cards);
+    const { user, status, cards, activeCard } = useSelector(
+        (state) => state.cards
+    );
 
     console.log(cards);
 
@@ -22,6 +24,7 @@ export const Home = () => {
     return (
         <div>
             <p>Status: {status}</p>
+            <p>Active card: {activeCard}</p>
             {user && <p>{user.first}</p>}
             <CardWrapper arr={cards} user={user} />
         </div>
