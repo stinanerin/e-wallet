@@ -1,11 +1,12 @@
 import { CreditCard } from "./CreditCard";
 
-export const CardWrapper = () => {
+export const CardWrapper = ({ arr, user }) => {
     return (
         <div>
             <h2>CardWrapper</h2>
-
-            <CreditCard />
+            {arr.map((card, i) => {
+                return <CreditCard key={i} {...card} user={user} />;
+            })}
         </div>
     );
 };

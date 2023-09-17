@@ -2,17 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.svg-icon {
-    fill: white;
-    
-    background-color: var(--color-text-contrast)
-}
-
 @layer base {
     :root {
-        --color-primary-400: 203 69% 60%;
-        --color-primary-500: 203 69% 50%;
-
         --color-secondary: 208 7% 46%;
 
         --color-warning-400: 33 93% 60%;
@@ -40,9 +31,19 @@
         --color-white:  0 0% 100%;
         --color-black:  0 0% 0%;
 
+        --color-primary-50:191 58% 96%;
+        --color-primary-100: 189 55% 90%;
+        --color-primary-200: 191 55% 82%;
+        --color-primary-300: 192 54% 66%;
+        --color-primary-400: 193 50% 53%;
+        --color-primary-500: 193 55% 43%;
+        --color-primary-600: 197 54% 36%;
+        --color-primary-700: 198 48% 31%;
+        --color-primary-800: 199 41% 27%;
+        --color-primary-900: 201 37% 24%;
+        --color-primary-950: 202 47% 15%;
 
         /* !----------------- */
-
 
         --color-warning: var(--color-warning-500);
         --color-primary: var(--color-primary-500);
@@ -54,7 +55,7 @@
 
         /* --color-warning-contrast: var(--color-warning-700); */
 
-        --color-bg: var(--color-blue-400);
+        --color-bg: var(--color-grey-50);
         --color-text: var(--color-black);
         --color-text-contrast: var(--color-white);
         --color-text-low-contrast: var(--color-grey-700);
@@ -66,7 +67,7 @@
             --color-elem-bg: var(--color-grey-800);
             --color-elem-border: var(--color-grey-500);
 
-            --color-bg: var(--color-grey-900);
+            --color-bg: var(--color-primary-700);
             --color-text: 0 0% 100%;
             --color-text-contrast: var(--color-black);
 

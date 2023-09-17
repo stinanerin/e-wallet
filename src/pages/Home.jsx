@@ -6,8 +6,8 @@ import { getRandomUser } from "../features/cards/cardsSlice";
 
 import { useEffect } from "react";
 
-export const Card = () => {
-    console.log("Card component rendered");
+export const Home = () => {
+    console.log("Home component rendered");
 
     const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ export const Card = () => {
         <div>
             <p>Status: {status}</p>
             {user && <p>{user.first}</p>}
-            <CardWrapper />
+            <CardWrapper arr={cards} user={user} />
         </div>
     );
 };
