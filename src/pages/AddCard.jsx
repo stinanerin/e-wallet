@@ -20,6 +20,7 @@ export const AddCard = () => {
 
     const {
         user: { first, last },
+        cards,
     } = useSelector((state) => state.cards);
 
     const isFormDataValid = () => {
@@ -58,31 +59,40 @@ export const AddCard = () => {
         //todo clear form and maybe navigate user to home page
     };
 
+    console.log(cards);
+
     return (
         <div>
-            <CreditCard
-                date={{
-                    month: formData.cardMonth.join(""),
-                    year: formData.cardYear.join(""),
-                }}
-                number={formData.cardNum}
-                vendor={formData.cardVendor}
-                user={{
-                    first,
-                    last,
-                }}
-                useDisplayFormat={true}
-            />
-
-            <h2 className="font-bold text-center mt-4 uppercase">
-                Add new card
-            </h2>
-
-            <Form
-                formData={formData}
-                setFormData={setFormData}
-                handleSubmit={handleSubmit}
-            />
+            {cards.length >= 4 ? (
+                <p>
+                    You have reached your limit of four credit cards. You need
+                    to remove a card before adding another one.
+                </p>
+            ) : (
+                <>
+                    <CreditCard
+                        date={{
+                            month: formData.cardMonth.join(""),
+                            year: formData.cardYear.join(""),
+                        }}
+                        number={formData.cardNum}
+                        vendor={formData.cardVendor}
+                        user={{
+                            first,
+                            last,
+                        }}
+                        useDisplayFormat={true}
+                    />
+                    <h2 className="font-bold text-center mt-4 uppercase">
+                        Add new card
+                    </h2>
+                    <Form
+                        formData={formData}
+                        setFormData={setFormData}
+                        handleSubmit={handleSubmit}
+                    />
+                </>
+            )}
         </div>
     );
 };
