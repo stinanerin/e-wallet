@@ -3,14 +3,20 @@ import chipSvg from "../assets/icons/chip2.svg";
 import signalSvg from "../assets/icons/signal.svg";
 
 import { useState, useEffect } from "react";
-
 import { splitArrIntoChunks } from "../utils/helpers";
-
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addCard } from "../features/cards/cardsSlice";
 
 export const AddCard = () => {
-    const [cardNum, setCardNum] = useState([]);
+    const dispatch = useDispatch();
+
     const [cardNumDisplay, setCardNumDisplay] = useState([]);
+    const [cardNum, setCardNum] = useState([]);
+    const [cardMonth, setCardMonth] = useState(null);
+    const [cardYear, setCardYear] = useState(null);
+    const [cardCvc, setCardCvc] = useState(null);
+    const [cardVendor, setCardVendor] = useState(null);
 
     const {
         user: { first, last },
@@ -29,9 +35,24 @@ export const AddCard = () => {
         setCardNumDisplay(numChunkArr);
     }, [cardNum]);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("hej");
+        const cardObj = {
+            number: cardNum,
+            date: { month: cardMonth, year: cardYear },
+            cvc: cardCvc,
+            vendor: cardVendor,
+        };
+        console.log(cardObj);
+
+        dispatch(addCard(cardObj));
+        //todo clear form and maybe navigate user to home page
+    };
+
     return (
         <div>
-            <h2 className="font-bold">AddCard</h2>
+            <h2 className="font-bold">Add card</h2>
 
             {
                 //! CARD - break out
@@ -73,7 +94,15 @@ export const AddCard = () => {
                 </div>
             </div>
 
-            <Form cardNum={cardNum} setCardNum={setCardNum} />
+            <Form
+                cardNum={cardNum}
+                setCardNum={setCardNum}
+                setCardMonth={setCardMonth}
+                setCardYear={setCardYear}
+                setCardCvc={setCardCvc}
+                setCardVendor={setCardVendor}
+                handleSubmit={handleSubmit}
+            />
         </div>
     );
 };

@@ -13,7 +13,8 @@ export default {
                     contrast:
                         "hsla(var(--color-text-contrast) /  <alpha-value>)",
                     low: {
-                        contrast: "hsla(var(--color-text-low-contrast) / 0.6)",
+                        contrast:
+                            "hsla(var(--color-text-low-contrast) / <alpha-value> )",
                         placeholder:
                             "hsla(var(--color-text-low-contrast) / <alpha-value>)",
                     },

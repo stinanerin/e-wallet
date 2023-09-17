@@ -2,7 +2,15 @@ import { DropDown } from "../components/DropDown";
 import { cardCompanies } from "../config/cardCompanies";
 import { useSelector } from "react-redux";
 
-export const Form = ({ setCardNum, cardNum }) => {
+export const Form = ({
+    setCardNum,
+    cardNum,
+    setCardVendor,
+    setCardMonth,
+    setCardYear,
+    setCardCvc,
+    handleSubmit,
+}) => {
     const {
         user: { first, last },
     } = useSelector((state) => state.cards);
@@ -24,11 +32,6 @@ export const Form = ({ setCardNum, cardNum }) => {
             const lastDigit = newInputArr.pop();
             return [...prevState, lastDigit];
         });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("hej");
     };
 
     return (
@@ -73,20 +76,42 @@ export const Form = ({ setCardNum, cardNum }) => {
                     disabled
                 />
             </div>
-            <div className=" flex gap-4 mb-4 sm:w-3/4">
-                <div className="w-full">
-                    <label
-                        htmlFor="datePicker"
-                        className="block uppercase text-text-default text-xs font-bold mb-2 "
-                    >
-                        valid thru
-                    </label>
-                    <input
-                        id="datePicker"
-                        type="text"
-                        className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2  w-full  text-text-default shadow-md"
-                        required
-                    />
+            <p className="block uppercase text-text-default text-xs font-bold mb-2 ">
+                Valid thru
+            </p>
+            <div className=" flex gap-4 items-end mb-4 sm:w-3/4">
+                <div className="flex gap-4 items-end w-full">
+                    <div>
+                        <label
+                            htmlFor="monthPicker"
+                            className="block uppercase text-text-low-contrast text-xs font-bold mb-2 "
+                        >
+                            Month
+                        </label>
+                        <input
+                            id="monthPicker"
+                            type="number"
+                            className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2  w-full  text-text-default shadow-md"
+                            required
+                            onChange={(e) => setCardMonth(e.target.value)}
+                        />
+                    </div>
+                    <p className="text-text-low-contrast font-bold">/</p>
+                    <div>
+                        <label
+                            htmlFor="yearPicker"
+                            className="block uppercase text-text-low-contrast text-xs font-bold mb-2 "
+                        >
+                            Year
+                        </label>
+                        <input
+                            id="yearPicker"
+                            type="number"
+                            className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2  w-full  text-text-default shadow-md"
+                            required
+                            onChange={(e) => setCardYear(e.target.value)}
+                        />
+                    </div>
                 </div>
                 <div className="w-full ">
                     <label
@@ -100,6 +125,7 @@ export const Form = ({ setCardNum, cardNum }) => {
                         type="number"
                         className="uppercase text-sm rounded-md bg-elem_bg py-1 px-2 w-full text-text-default shadow-md"
                         required
+                        onChange={(e) => setCardCvc(e.target.value)}
                     />
                 </div>
             </div>
@@ -109,6 +135,7 @@ export const Form = ({ setCardNum, cardNum }) => {
                     arr: cardCompanies,
                 }}
                 isReq={true}
+                setSelectedValue={setCardVendor}
             />
             <button className="block bg-black px-4 py-2 border-2 border-black rounded-lg uppercase text-text-contrast text-sm font-bold my-4 hover:bg-text-contrast hover:text-text-default hover:border-text">
                 Add card
