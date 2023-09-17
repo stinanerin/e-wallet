@@ -7,10 +7,21 @@ const getStateFromLocalStorage = () => {
     return localStorageItem ? JSON.parse(localStorageItem) : {};
 };
 
+const initialCard = {
+    cvc: "098",
+    date: {
+        month: "12",
+        year: "2026",
+    },
+    number: [2, 3, 4, 4, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 5],
+    vendor: "Visa",
+    id: crypto.randomUUID(),
+};
+
 const initialState = {
-    user: getStateFromLocalStorage()?.user || null,
-    cards: getStateFromLocalStorage()?.cards || [],
-    activeCard: null,
+    user: getStateFromLocalStorage()?.user || "",
+    cards: getStateFromLocalStorage()?.cards || [initialCard],
+    activeCard: getStateFromLocalStorage()?.activeCard || initialCard.id,
     status: null,
 };
 
@@ -47,6 +58,7 @@ const cardSlice = createSlice({
             state.status = "Loading...";
         },
         [getRandomUser.fulfilled]: (state, action) => {
+            console.log("hej", action.payload);
             state.user = action.payload;
             state.status = "Success";
         },
