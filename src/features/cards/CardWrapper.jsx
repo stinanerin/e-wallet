@@ -4,6 +4,8 @@ import { setActiveCard, delCard } from "./cardsSlice";
 
 import { useDispatch, useSelector } from "react-redux";
 
+import { Button } from "../../components/Button";
+
 export const CardWrapper = ({ arr, user }) => {
     const dispatch = useDispatch();
 
@@ -30,14 +32,21 @@ export const CardWrapper = ({ arr, user }) => {
                     <div key={card.id}>
                         <CreditCard {...card} user={user} />
                         <div className="flex gap-10">
-                            <button
+                            <Button
+                                type="primary"
                                 onClick={() => dispatch(setActiveCard(card.id))}
                             >
-                                Set as active card {card.id}
-                            </button>
-                            <button onClick={() => dispatch(delCard(card.id))}>
-                                Del card
-                            </button>
+                                {" "}
+                                Activate card
+                            </Button>
+
+                            <Button
+                                type="secondary"
+                                onClick={() => dispatch(delCard(card.id))}
+                            >
+                                {" "}
+                                Delete
+                            </Button>
                         </div>
                     </div>
                 );
