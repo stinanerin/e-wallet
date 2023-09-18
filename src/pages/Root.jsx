@@ -20,8 +20,9 @@ export const Root = () => {
         <>
             <Header user={user} />
             <main className="mx-4">
-                <p>Status: {status}</p>
-
+                {
+                    // <p>Status: {status}</p>
+                }
                 <Outlet />
             </main>
         </>
