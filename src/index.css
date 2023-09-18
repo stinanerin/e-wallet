@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
+    html {
+        font-family: monospace;
+    }
+    @font-face {
+        font-family: "Credit";
+        src: url("../public/assets/fonts/");
+    }
+
     :root {
         --color-secondary: 208 7% 46%;
 

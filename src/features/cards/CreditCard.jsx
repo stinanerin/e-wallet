@@ -1,5 +1,5 @@
-import chipSvg from "../../assets/icons/chip2.svg";
-import signalSvg from "../../assets/icons/signal.svg";
+import chipSvg from "../../../public/assets/icons/chip2.svg";
+import signalSvg from "../../../public/assets/icons/signal.svg";
 
 import {
     determineVendorSVG,
