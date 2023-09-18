@@ -50,7 +50,7 @@ export const CardWrapper = ({ arr, user }) => {
                                 type="primary"
                                 onClick={() => dispatch(setActiveCard(card.id))}
                             >
-                                Activate card
+                                Activate
                             </Button>
 
                             {
