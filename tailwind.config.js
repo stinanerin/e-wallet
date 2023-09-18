@@ -57,4 +57,9 @@ export default {
         },
     },
     plugins: [],
+    // Removes all unused css
+    // purge: {
+    //     enabled: true,
+    //     content: ["./**/*.html"],
+    // },
 };
