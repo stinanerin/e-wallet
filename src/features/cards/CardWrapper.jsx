@@ -6,12 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "../../components/Button";
 
-export const CardWrapper = ({ arr, user }) => {
+export const CardWrapper = () => {
     const dispatch = useDispatch();
 
-    const { activeCard } = useSelector((state) => state.cards);
+    const {
+        activeCard,
+        cards: cardsArr,
+        user,
+    } = useSelector((state) => state.cards);
 
-    const activeCardComponent = arr.find((card) => card.id === activeCard);
+    const activeCardComponent = cardsArr.find((card) => card.id === activeCard);
     console.log(activeCardComponent);
 
     return (
@@ -34,7 +38,7 @@ export const CardWrapper = ({ arr, user }) => {
 
             <h2 className="font-bold text-md">Inactive cards</h2>
 
-            {arr.map((card) => {
+            {cardsArr.map((card) => {
                 if (card.id === activeCard) {
                     console.log("match", card);
                     return "";
