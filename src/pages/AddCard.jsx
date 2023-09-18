@@ -3,12 +3,13 @@ import { Form } from "../components/Form";
 import { CreditCard } from "../features/cards/CreditCard";
 
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addCard } from "../features/cards/cardsSlice";
 
 export const AddCard = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         cardNum: [],
@@ -57,8 +58,7 @@ export const AddCard = () => {
         console.log(cardObj);
 
         dispatch(addCard(cardObj));
-        //todo clear form and maybe navigate the user to the home page
-        //todo clear form and maybe navigate user to home page
+        navigate("/");
     };
 
     console.log(cards);
