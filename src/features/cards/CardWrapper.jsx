@@ -11,40 +11,56 @@ export const CardWrapper = ({ arr, user }) => {
 
     const { activeCard } = useSelector((state) => state.cards);
 
+    const activeCardComponent = arr.find((card) => card.id === activeCard);
+    console.log(activeCardComponent);
+
     return (
         <div>
-            <h2>CardWrapper</h2>
+            <h2 className="font-bold text-md">
+                Active card:
+                {
+                    // activeCard
+                }
+            </h2>
 
-            <p>Active card: {activeCard}</p>
+            <div key={activeCardComponent.id}>
+                <CreditCard {...activeCardComponent} user={user} />
+                <p>
+                    {
+                        // activeCardComponent.id
+                    }
+                </p>
+            </div>
+
+            <h2 className="font-bold text-md">Inactive cards</h2>
 
             {arr.map((card) => {
                 if (card.id === activeCard) {
                     console.log("match", card);
-                    return (
-                        <div key={card.id}>
-                            <CreditCard {...card} user={user} />
-                            <p>{card.id}</p>
-                        </div>
-                    );
+                    return "";
                 }
 
                 return (
                     <div key={card.id}>
-                        <CreditCard {...card} user={user} />
+                        <div className="opacity-60">
+                            <CreditCard {...card} user={user} />
+                        </div>
                         <div className="flex gap-10">
                             <Button
                                 type="primary"
                                 onClick={() => dispatch(setActiveCard(card.id))}
                             >
-                                {" "}
                                 Activate card
                             </Button>
+
+                            {
+                                // card.id
+                            }
 
                             <Button
                                 type="secondary"
                                 onClick={() => dispatch(delCard(card.id))}
                             >
-                                {" "}
                                 Delete
                             </Button>
                         </div>
