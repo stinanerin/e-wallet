@@ -1,6 +1,6 @@
-import amex from "../../public/assets/logos/amex.svg";
-import mastercard from "../../public/assets/logos/mastercard.svg";
-import visa from "../../public/assets/logos/visa.svg";
+import amex from "./../assets/logos/amex.svg";
+import mastercard from "./../assets/logos/mastercard.svg";
+import visa from "./../assets/logos/visa.svg";
 
 export const splitArrIntoChunks = (arr, chunkSize) => {
     const resultArray = arr.reduce((acc, curr, i) => {
