@@ -5,6 +5,8 @@ import visa from "./../assets/logos/visa.svg";
 import { months } from "../config/config";
 
 export const splitArrIntoChunks = (arr, chunkSize) => {
+    console.log(arr);
+    if (!arr) return [];
     const resultArray = arr.reduce((acc, curr, i) => {
         const index = Math.floor(i / chunkSize);
         if (!acc[index]) {
