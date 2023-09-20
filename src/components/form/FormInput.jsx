@@ -41,7 +41,7 @@ export const FormInput = (props) => {
                         ? "invalid:border-danger-600 invalid:text-danger-600 focus:invalid:border-danger-600 focus:invalid:ring-danger-600"
                         : ""
                 } 
-      uppercase rounded-md bg-elem_bg py-1 px-2 w-full text-text-default text-sm shadow-md disabled:text-text-low-contrast disabled:opacity-50 focus:outline-none focus:ring focus:ring-primary-600`}
+      uppercase rounded-md bg-elem_bg py-1 px-2 w-full text-text-default text-sm shadow-md  disabled:opacity-50 focus:outline-none focus:ring focus:ring-primary-600`}
                 {...inputProps}
                 maxLength={inputProps.maxLength}
                 onBlur={handleBlur}
