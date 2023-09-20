@@ -1,5 +1,4 @@
 import { DropDown } from "./DropDown";
-import { ErrorMessage } from "./ErrorMessage";
 import { FormInput } from "./FormInput";
 import { Button } from "../Button";
 
@@ -14,8 +13,10 @@ export const Form = ({ formData, setFormData, handleSubmit }) => {
     // } = useSelector((state) => state.cards);
 
     const onChange = (e) => {
-        // console.log("change", e.target.name);
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const elem = e.target;
+        // console.log("change", elem.name);
+
+        setFormData({ ...formData, [elem.name]: elem.value });
     };
 
     return (
@@ -34,6 +35,11 @@ export const Form = ({ formData, setFormData, handleSubmit }) => {
                         />
                     );
                 })}
+                <DropDown
+                    optionsObj={{ filter: "vendor", arr: cardVendors }}
+                    isReq={true}
+                    onChange={onChange}
+                />
 
                 <div className="self-center">
                     <Button type="primary">Add card</Button>

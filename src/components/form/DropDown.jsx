@@ -1,11 +1,5 @@
-export const DropDown = ({ optionsObj, isReq, setSelectedValue }) => {
+export const DropDown = ({ optionsObj, isReq, onChange }) => {
     const { filter, arr } = optionsObj;
-    const handleFilter = (e) => {
-        let selectedOption = e.target.value;
-        console.log(setSelectedValue);
-        if (selectedOption === "All") selectedOption = "";
-        setSelectedValue(selectedOption);
-    };
 
     return (
         <>
@@ -19,7 +13,7 @@ export const DropDown = ({ optionsObj, isReq, setSelectedValue }) => {
                 name={filter}
                 id={`filterBy${filter}`}
                 className="rounded-md bg-elem_bg py-1 px-2 w-full text-text text-sm shadow-md"
-                onChange={handleFilter}
+                onChange={onChange}
                 required={isReq}
             >
                 <option key={"all"} value="">
