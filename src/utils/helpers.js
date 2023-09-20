@@ -21,7 +21,8 @@ export const blockInvalidChar = (string) => {
 };
 
 export const generateDisplayFormat = (inputArray, maxLength, chunkNum) => {
-    const arr = [...inputArray];
+    console.log(inputArray);
+    const arr = inputArray ? [...inputArray] : [];
     while (arr.length < maxLength) {
         arr.push("X");
     }

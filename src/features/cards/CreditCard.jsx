@@ -19,6 +19,8 @@ export const CreditCard = ({
         ? generateDisplayFormat(card_number, 16)
         : card_number.split("");
 
+    const formattedDate = date ? formatDate(date) : "XX / XX";
+
     return (
         <div className=" px-4 py-6 bg-gray-400 rounded shadow-lg mb-5 max-w-md ">
             <div className="flex justify-between svg-icon">
@@ -53,7 +55,7 @@ export const CreditCard = ({
                         valid thru
                     </p>
                     <p className="uppercase text-sm text-text-contrast text-end">
-                        {formatDate(date)}
+                        {formattedDate}
                     </p>
                 </div>
             </div>

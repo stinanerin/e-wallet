@@ -19,7 +19,7 @@ export const AddCard = () => {
     });
 
     const {
-        // user: { first, last },
+        user: { first, last },
         cards,
     } = useSelector((state) => state.cards);
 
@@ -49,18 +49,15 @@ export const AddCard = () => {
                 </p>
             ) : (
                 <>
-                    {
-                        //     <CreditCard
-                        //     date={formData.date}
-                        //     number={formData.card_number}
-                        //     vendor={formData.vendor}
-                        //     user={{
-                        //         first,
-                        //         last,
-                        //     }}
-                        //     useDisplayFormat={true}
-                        // />
-                    }
+                    <CreditCard
+                        {...formData}
+                        user={{
+                            first,
+                            last,
+                        }}
+                        useDisplayFormat={true}
+                    />
+
                     <h2 className="font-bold text-center mt-4 uppercase">
                         Add new card
                     </h2>
