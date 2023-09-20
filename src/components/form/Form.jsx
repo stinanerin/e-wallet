@@ -3,14 +3,13 @@ import { FormInput } from "./FormInput";
 import { Button } from "../Button";
 
 import { cardVendors, inputs } from "../../config/config";
-import { blockInvalidChar } from "../../utils/helpers/";
 
 import { useSelector } from "react-redux";
 
 export const Form = ({ formData, setFormData, handleSubmit }) => {
-    // const {
-    //     user: { first, last },
-    // } = useSelector((state) => state.cards);
+    const {
+        user: { first, last },
+    } = useSelector((state) => state.cards);
 
     const onChange = (e) => {
         const elem = e.target;
@@ -25,6 +24,13 @@ export const Form = ({ formData, setFormData, handleSubmit }) => {
                 onSubmit={handleSubmit}
                 className="flex flex-col  gap-4 bg-gradient-to-t from-transparent-2 to-transparent-0  px-8 pt-6 pb-8 my-4 "
             >
+                <FormInput
+                    label="card holder name"
+                    key={crypto.randomUUID()}
+                    disabled
+                    value={first + " " + last}
+                />
+
                 {inputs.map((input) => {
                     return (
                         <FormInput

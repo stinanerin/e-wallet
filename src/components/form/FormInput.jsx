@@ -4,7 +4,7 @@ import { ErrorMessage } from "./ErrorMessage";
 export const FormInput = (props) => {
     const [blur, setBlur] = useState(false);
 
-    const { label, errorMessage, onChange, ...inputProps } = props;
+    const { disabled, label, errorMessage, onChange, ...inputProps } = props;
 
     const handleBlur = () => {
         setBlur(true);
@@ -28,12 +28,13 @@ export const FormInput = (props) => {
                 {label}
             </label>
             <input
-                className="rounded-md bg-elem_bg py-1 px-2  w-full  text-text-default text-sm shadow-md"
+                className="uppercase rounded-md bg-elem_bg py-1 px-2 w-full text-text-default text-sm shadow-md disabled:text-text-low-contrast"
                 {...inputProps}
                 maxLength={inputProps.maxLength}
                 // onChange={onChange}
                 onBlur={handleBlur}
                 onChange={onChange}
+                disabled={disabled}
                 // onFocus={() =>
                 //     inputProps.name === "confirmPassword" && setFocused(true)
                 // }
