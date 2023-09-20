@@ -5,26 +5,21 @@ import {
     determineVendorSVG,
     splitArrIntoChunks,
     generateDisplayFormat,
+    formatDate,
 } from "../../utils/helpers";
 
 export const CreditCard = ({
-    date: { month, year },
-    number,
+    date,
+    card_number,
     vendor,
     user: { first, last },
     useDisplayFormat = false,
 }) => {
     const formattedNumber = useDisplayFormat
-        ? generateDisplayFormat(number, 16)
-        : number;
+        ? generateDisplayFormat(card_number, 16)
+        : card_number.split("");
 
-    const formattedMonth = useDisplayFormat
-        ? generateDisplayFormat(month, 2)
-        : month;
-
-    const formattedYear = useDisplayFormat
-        ? generateDisplayFormat(year, 2)
-        : year;
+    const formattedDate = date ? formatDate(date) : "XX / XX";
 
     return (
         <div className=" px-4 py-6 bg-gray-400 rounded shadow-lg mb-5 max-w-md ">
@@ -60,7 +55,7 @@ export const CreditCard = ({
                         valid thru
                     </p>
                     <p className="uppercase text-sm text-text-contrast text-end">
-                        {formattedMonth}/{formattedYear}
+                        {formattedDate}
                     </p>
                 </div>
             </div>

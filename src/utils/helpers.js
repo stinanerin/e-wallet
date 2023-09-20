@@ -2,6 +2,8 @@ import amex from "./../assets/logos/amex.svg";
 import mastercard from "./../assets/logos/mastercard.svg";
 import visa from "./../assets/logos/visa.svg";
 
+import { months } from "../config/config";
+
 export const splitArrIntoChunks = (arr, chunkSize) => {
     const resultArray = arr.reduce((acc, curr, i) => {
         const index = Math.floor(i / chunkSize);
@@ -15,13 +17,9 @@ export const splitArrIntoChunks = (arr, chunkSize) => {
     return resultArray;
 };
 
-export const blockInvalidChar = (string) => {
-    const cleansedValue = string.replace(/\D/g, "");
-    return cleansedValue;
-};
-
 export const generateDisplayFormat = (inputArray, maxLength, chunkNum) => {
-    const arr = [...inputArray];
+    console.log(inputArray);
+    const arr = inputArray ? [...inputArray] : [];
     while (arr.length < maxLength) {
         arr.push("X");
     }
@@ -41,4 +39,17 @@ export const determineVendorSVG = (vendor) => {
         default:
             return null;
     }
+};
+
+export const formatDate = (inputDate) => {
+    const date = new Date(inputDate);
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+
+    return `${month} / ${year}`;
+};
+
+export const hasDatePassed = (d1, d2) => {
+    // Create a new date of the existing dates to cancel out the time
+    return new Date(d1.toDateString()) < new Date(d2.toDateString());
 };
