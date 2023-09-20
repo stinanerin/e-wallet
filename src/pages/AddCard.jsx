@@ -41,8 +41,8 @@ export const AddCard = () => {
 
         console.log("newCardObj", newCardObj);
 
-        // dispatch(addCard(newCardObj));
-        // navigate("/");
+        dispatch(addCard(newCardObj));
+        navigate("/");
     };
 
     console.log(cards);

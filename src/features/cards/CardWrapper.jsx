@@ -16,7 +16,7 @@ export const CardWrapper = () => {
     } = useSelector((state) => state.cards);
 
     const activeCardComponent = cardsArr.find((card) => card.id === activeCard);
-    // console.log(activeCardComponent);
+    console.log(activeCardComponent);
 
     return (
         <div>
@@ -43,6 +43,7 @@ export const CardWrapper = () => {
                     // console.log("match", card);
                     return "";
                 }
+                console.log("hej");
 
                 return (
                     <div key={card.id}>

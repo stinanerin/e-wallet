@@ -8,31 +8,11 @@ const getStateFromLocalStorage = () => {
 };
 
 //todo upådate intital card to new format
-/*
-cvc
-: 
-"666"
-date
-: 
-"2023-09-13"
-id
-: 
-"3225b00c-09f5-484a-ac20-75af1bdc222f"
-number
-: 
-"1234567891234567"
-vendor
-: 
-undefined 
-*/
 
 const initialCard = {
     cvc: "098",
-    date: {
-        month: "12",
-        year: "2026",
-    },
-    number: [2, 3, 4, 4, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 5],
+    date: "2023-11-13",
+    card_number: "1234567891234567",
     vendor: "Visa",
     id: crypto.randomUUID(),
 };
