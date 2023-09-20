@@ -4,14 +4,9 @@
 
 
 
-@layer base {
-    html {
-        font-family: monospace;
-    }
-    @font-face {
-        font-family: "Credit";
-        src: url("../public/assets/fonts/");
-    }
+
+
+@layer base {   
 
     :root {
         --color-secondary: 208 7% 46%;

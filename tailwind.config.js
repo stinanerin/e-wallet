@@ -6,6 +6,10 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
+            fontFamily: {
+                poppins: ["Poppins", ...defaultTheme.fontFamily.sans],
+                credit: ['"Share Tech Mono"', ...defaultTheme.fontFamily.mono],
+            },
             colors: {
                 bkg: "hsl(var(--color-bg) / <alpha-value>)",
                 text: {

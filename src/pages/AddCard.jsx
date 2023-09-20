@@ -45,7 +45,7 @@ export const AddCard = () => {
     };
 
     return (
-        <div>
+        <div className=" flex flex-col items-center lg:flex-row md:gap-10 md:justify-center">
             {cards.length >= 4 ? (
                 <p>
                     You have reached your limit of four credit cards. You need
@@ -62,9 +62,6 @@ export const AddCard = () => {
                         useDisplayFormat={true}
                     />
 
-                    <h2 className="font-bold text-center mt-4 uppercase">
-                        Add new card
-                    </h2>
                     <Form
                         handleSubmit={handleSubmit}
                         setFormData={setFormData}

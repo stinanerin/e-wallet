@@ -22,7 +22,7 @@ export const CreditCard = ({
     const formattedDate = date ? formatDate(date) : "XX / XX";
 
     return (
-        <div className=" px-4 py-6 bg-gray-400 rounded shadow-lg mb-5 max-w-md ">
+        <div className="w-full font-credit px-4 py-6 bg-gray-400 rounded shadow-lg mb-5 max-w-md ">
             <div className="flex justify-between svg-icon">
                 <img src={signalSvg} alt="#" className="w-7 " />
                 {vendor && (

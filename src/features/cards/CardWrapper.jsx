@@ -19,14 +19,15 @@ export const CardWrapper = () => {
 
     return (
         <div>
-            <h2 className="font-bold text-md">Active card:</h2>
+            <h2 className="font-poppins font-bold text-md">Active card:</h2>
 
             <div key={activeCardComponent.id}>
                 <CreditCard {...activeCardComponent} user={user} />
                 <p></p>
             </div>
-
-            <h2 className="font-bold text-md">Inactive cards</h2>
+            {cardsArr.length > 1 && (
+                <h2 className="font-bold text-md">Inactive cards</h2>
+            )}
 
             {cardsArr.map((card) => {
                 if (card.id === activeCard) {
@@ -38,7 +39,7 @@ export const CardWrapper = () => {
                         <div className="opacity-60">
                             <CreditCard {...card} user={user} />
                         </div>
-                        <div className="flex gap-10">
+                        <div className="flex gap-10 mb-5">
                             <Button
                                 type="primary"
                                 onClick={() => dispatch(setActiveCard(card.id))}
