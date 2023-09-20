@@ -27,7 +27,6 @@ export const FormInput = (props) => {
 
         return false;
     };
-    // todo input dropdown focus state
 
     return (
         <div className="formInput">
