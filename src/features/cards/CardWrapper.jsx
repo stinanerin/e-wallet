@@ -29,34 +29,37 @@ export const CardWrapper = () => {
                 <h2 className="font-bold text-md">Inactive cards</h2>
             )}
 
-            {cardsArr.map((card) => {
-                if (card.id === activeCard) {
-                    return "";
-                }
+            {cardsArr &&
+                cardsArr.map((card) => {
+                    if (card.id === activeCard) {
+                        return "";
+                    }
 
-                return (
-                    <div key={card.id}>
-                        <div className="opacity-60">
-                            <CreditCard {...card} user={user} />
-                        </div>
-                        <div className="flex gap-10 mb-5">
-                            <Button
-                                type="primary"
-                                onClick={() => dispatch(setActiveCard(card.id))}
-                            >
-                                Activate
-                            </Button>
+                    return (
+                        <div key={card.id}>
+                            <div className="opacity-60">
+                                <CreditCard {...card} user={user} />
+                            </div>
+                            <div className="flex gap-10 mb-5">
+                                <Button
+                                    type="primary"
+                                    onClick={() =>
+                                        dispatch(setActiveCard(card.id))
+                                    }
+                                >
+                                    Activate
+                                </Button>
 
-                            <Button
-                                type="secondary"
-                                onClick={() => dispatch(delCard(card.id))}
-                            >
-                                Delete
-                            </Button>
+                                <Button
+                                    type="secondary"
+                                    onClick={() => dispatch(delCard(card.id))}
+                                >
+                                    Delete
+                                </Button>
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
         </div>
     );
 };
