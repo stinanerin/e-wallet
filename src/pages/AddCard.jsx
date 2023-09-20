@@ -15,7 +15,7 @@ export const AddCard = () => {
         card_number: "",
         cvc: "",
         date: "",
-        // vendor: "",
+        vendor: "",
     });
 
     const {
@@ -36,13 +36,9 @@ export const AddCard = () => {
             id: crypto.randomUUID(),
         };
 
-        // console.log("newCardObj", newCardObj);
-
         dispatch(addCard(newCardObj));
         navigate("/");
     };
-
-    // console.log("cards", cards);
 
     return (
         <div>

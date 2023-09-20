@@ -31,14 +31,9 @@ export const FormInput = (props) => {
                 className="uppercase rounded-md bg-elem_bg py-1 px-2 w-full text-text-default text-sm shadow-md disabled:text-text-low-contrast"
                 {...inputProps}
                 maxLength={inputProps.maxLength}
-                // onChange={onChange}
                 onBlur={handleBlur}
                 onChange={onChange}
                 disabled={disabled}
-                // onFocus={() =>
-                //     inputProps.name === "confirmPassword" && setFocused(true)
-                // }
-                // focused={focused.toString()}
             />
             {showError() && <ErrorMessage>{errorMessage}</ErrorMessage>}
         </div>
