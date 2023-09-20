@@ -2,6 +2,7 @@ export const DropDown = ({ optionsObj, isReq, setSelectedValue }) => {
     const { filter, arr } = optionsObj;
     const handleFilter = (e) => {
         let selectedOption = e.target.value;
+        console.log(setSelectedValue);
         if (selectedOption === "All") selectedOption = "";
         setSelectedValue(selectedOption);
     };
@@ -12,9 +13,10 @@ export const DropDown = ({ optionsObj, isReq, setSelectedValue }) => {
                 className="block uppercase text-text text-xs font-bold mb-2"
                 htmlFor={`filterBy${filter}`}
             >
-                {filter}:
+                Choose {filter}:
             </label>
             <select
+                name={filter}
                 id={`filterBy${filter}`}
                 className="rounded-md bg-elem_bg py-1 px-2 w-full text-text text-sm shadow-md"
                 onChange={handleFilter}

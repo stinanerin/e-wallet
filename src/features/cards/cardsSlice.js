@@ -7,6 +7,25 @@ const getStateFromLocalStorage = () => {
     return localStorageItem ? JSON.parse(localStorageItem) : {};
 };
 
+//todo upådate intital card to new format
+/*
+cvc
+: 
+"666"
+date
+: 
+"2023-09-13"
+id
+: 
+"3225b00c-09f5-484a-ac20-75af1bdc222f"
+number
+: 
+"1234567891234567"
+vendor
+: 
+undefined 
+*/
+
 const initialCard = {
     cvc: "098",
     date: {

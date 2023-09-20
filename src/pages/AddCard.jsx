@@ -1,4 +1,4 @@
-import { Form } from "../components/Form";
+import { Form } from "../components/form/Form";
 
 import { CreditCard } from "../features/cards/CreditCard";
 
@@ -12,53 +12,37 @@ export const AddCard = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        cardNum: [],
-        cardMonth: [],
-        cardYear: [],
-        cardCvc: [],
-        cardVendor: "",
+        card_number: "",
+        cvc: "",
+        date: "",
+        // vendor: "",
     });
 
     const {
-        user: { first, last },
+        // user: { first, last },
         cards,
     } = useSelector((state) => state.cards);
-
-    const isFormDataValid = () => {
-        //todo -  make dynamic
-        return (
-            formData.cardNum.length === 16 &&
-            formData.cardMonth.length === 2 &&
-            formData.cardYear.length === 2 &&
-            formData.cardCvc.length === 3 &&
-            formData.cardVendor !== ""
-        );
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!isFormDataValid()) {
-            //todo! error msg
-            console.log("Form data is invalid");
-            return;
-        }
+        const data = new FormData(e.target);
+        console.log("data", data);
 
-        // Continue with form submission
-        const cardObj = {
-            number: formData.cardNum,
-            date: {
-                month: formData.cardMonth.join(""),
-                year: formData.cardYear.join(""),
-            },
-            cvc: formData.cardCvc.join(""),
-            vendor: formData.cardVendor,
+        const cardData = Object.fromEntries(data.entries());
+        console.log("Object: entries", cardData);
+        //todo make sure vendor exisits
+
+        const newCardObj = {
+            // Include props from formDataObj
+            ...cardData,
             id: crypto.randomUUID(),
         };
-        console.log(cardObj);
 
-        dispatch(addCard(cardObj));
-        navigate("/");
+        console.log("newCardObj", newCardObj);
+
+        // dispatch(addCard(newCardObj));
+        // navigate("/");
     };
 
     console.log(cards);
@@ -72,26 +56,25 @@ export const AddCard = () => {
                 </p>
             ) : (
                 <>
-                    <CreditCard
-                        date={{
-                            month: formData.cardMonth.join(""),
-                            year: formData.cardYear.join(""),
-                        }}
-                        number={formData.cardNum}
-                        vendor={formData.cardVendor}
-                        user={{
-                            first,
-                            last,
-                        }}
-                        useDisplayFormat={true}
-                    />
+                    {
+                        //     <CreditCard
+                        //     date={formData.date}
+                        //     number={formData.card_number}
+                        //     vendor={formData.vendor}
+                        //     user={{
+                        //         first,
+                        //         last,
+                        //     }}
+                        //     useDisplayFormat={true}
+                        // />
+                    }
                     <h2 className="font-bold text-center mt-4 uppercase">
                         Add new card
                     </h2>
                     <Form
-                        formData={formData}
-                        setFormData={setFormData}
                         handleSubmit={handleSubmit}
+                        setFormData={setFormData}
+                        formData={formData}
                     />
                 </>
             )}
