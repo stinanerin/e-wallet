@@ -17,6 +17,7 @@ export const AddCard = () => {
         date: "",
         vendor: "",
     });
+    const [isDatePassed, setIsDatePassed] = useState(false);
 
     const {
         user: { first, last },
@@ -28,16 +29,19 @@ export const AddCard = () => {
 
         const form = new FormData(e.target);
         const cardData = Object.fromEntries(form.entries());
-        //todo make sure vendor exisits
 
-        const newCardObj = {
-            // Include props from formDataObj
-            ...cardData,
-            id: crypto.randomUUID(),
-        };
+        if (!isDatePassed) {
+            const newCardObj = {
+                // Include props from formDataObj
+                ...cardData,
+                id: crypto.randomUUID(),
+            };
 
-        dispatch(addCard(newCardObj));
-        navigate("/");
+            dispatch(addCard(newCardObj));
+            navigate("/");
+        } else {
+            //todo
+        }
     };
 
     return (
@@ -65,6 +69,8 @@ export const AddCard = () => {
                         handleSubmit={handleSubmit}
                         setFormData={setFormData}
                         formData={formData}
+                        setIsDatePassed={setIsDatePassed}
+                        isDatePassed={isDatePassed}
                     />
                 </>
             )}

@@ -4,7 +4,10 @@ import { ErrorMessage } from "./ErrorMessage";
 export const FormInput = (props) => {
     const [blur, setBlur] = useState(false);
 
-    const { disabled, label, errorMessage, onChange, ...inputProps } = props;
+    const { valid, disabled, label, errorMessage, onChange, ...inputProps } =
+        props;
+
+    console.log("valid", valid);
 
     const handleBlur = () => {
         setBlur(true);
@@ -19,6 +22,11 @@ export const FormInput = (props) => {
                 return true;
             }
         }
+        if (valid === false) {
+            // if date has passed, input not valid,  display error
+            return true;
+        }
+
         return false;
     };
 

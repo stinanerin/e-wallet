@@ -3,17 +3,32 @@ import { FormInput } from "./FormInput";
 import { Button } from "../Button";
 
 import { cardVendors, inputs } from "../../config/config";
+import { hasDatePassed } from "../../utils/helpers";
 
 import { useSelector } from "react-redux";
 
-export const Form = ({ formData, setFormData, handleSubmit }) => {
+export const Form = ({
+    formData,
+    setFormData,
+    handleSubmit,
+    isDatePassed,
+    setIsDatePassed,
+}) => {
     const {
         user: { first, last },
     } = useSelector((state) => state.cards);
 
     const onChange = (e) => {
         const elem = e.target;
-        // console.log("change", elem.name);
+        console.log("change", elem.name);
+
+        if (elem.name === "date") {
+            const pickedDate = new Date(elem.value);
+            const currentDate = new Date();
+            const isDatePassed = hasDatePassed(pickedDate, currentDate);
+            console.log("isDatePassed", isDatePassed);
+            setIsDatePassed(isDatePassed);
+        }
 
         setFormData({ ...formData, [elem.name]: elem.value });
     };
@@ -32,6 +47,18 @@ export const Form = ({ formData, setFormData, handleSubmit }) => {
                 />
 
                 {inputs.map((input) => {
+                    if (input.name === "date") {
+                        console.log("hje");
+                        return (
+                            <FormInput
+                                key={input.id}
+                                {...input}
+                                value={formData[input.name]}
+                                onChange={onChange}
+                                valid={!isDatePassed}
+                            />
+                        );
+                    }
                     return (
                         <FormInput
                             key={input.id}
