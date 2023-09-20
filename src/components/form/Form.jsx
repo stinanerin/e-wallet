@@ -34,10 +34,13 @@ export const Form = ({
     };
 
     return (
-        <div className="bg-primary-500 shadow-2xl rounded max-w-lg ">
+        <div className="w-full py-8 bg-primary-500 shadow-2xl rounded max-w-md bg-gradient-to-t from-transparent-2 to-transparent-0">
+            <h2 className="font-bold text-center mt-4 uppercase ">
+                Add new card
+            </h2>
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col  gap-4 bg-gradient-to-t from-transparent-2 to-transparent-0  px-8 pt-6 pb-8 my-4 "
+                className="flex flex-col gap-4 px-8 pt-6  "
             >
                 <FormInput
                     label="card holder name"

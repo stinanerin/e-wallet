@@ -16,31 +16,21 @@ export const CardWrapper = () => {
     } = useSelector((state) => state.cards);
 
     const activeCardComponent = cardsArr.find((card) => card.id === activeCard);
-    // console.log(activeCardComponent);
 
     return (
         <div>
-            <h2 className="font-bold text-md">
-                Active card:
-                {
-                    // activeCard
-                }
-            </h2>
+            <h2 className="font-poppins font-bold text-md">Active card:</h2>
 
             <div key={activeCardComponent.id}>
                 <CreditCard {...activeCardComponent} user={user} />
-                <p>
-                    {
-                        // activeCardComponent.id
-                    }
-                </p>
+                <p></p>
             </div>
-
-            <h2 className="font-bold text-md">Inactive cards</h2>
+            {cardsArr.length > 1 && (
+                <h2 className="font-bold text-md">Inactive cards</h2>
+            )}
 
             {cardsArr.map((card) => {
                 if (card.id === activeCard) {
-                    // console.log("match", card);
                     return "";
                 }
 
@@ -49,17 +39,13 @@ export const CardWrapper = () => {
                         <div className="opacity-60">
                             <CreditCard {...card} user={user} />
                         </div>
-                        <div className="flex gap-10">
+                        <div className="flex gap-10 mb-5">
                             <Button
                                 type="primary"
                                 onClick={() => dispatch(setActiveCard(card.id))}
                             >
                                 Activate
                             </Button>
-
-                            {
-                                // card.id
-                            }
 
                             <Button
                                 type="secondary"

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export const Header = ({ user: { first, last } }) => {
+export const Header = ({ user: { first } }) => {
     return (
-        <header className="  w-full  p-3 bg-gradient-to-b from-transparent-0 to-bkg ">
-            <div className="flex justify-between items-end max-w-68">
+        <header className=" p-3 bg-gradient-to-b from-transparent-0 to-bkg ">
+            <div className="flex justify-between items-end max-w-7xl m-auto">
                 <div
                     className={`${
                         !first ? "w-[70px]" : ""

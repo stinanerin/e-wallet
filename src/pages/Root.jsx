@@ -19,7 +19,7 @@ export const Root = () => {
     return (
         <>
             <Header user={user} />
-            <main className="mx-4">
+            <main className="mx-4 mt-10">
                 {
                     // <p>Status: {status}</p>
                 }
