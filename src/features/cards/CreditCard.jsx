@@ -17,7 +17,7 @@ export const CreditCard = ({
 }) => {
     const formattedNumber = useDisplayFormat
         ? generateDisplayFormat(card_number, 16)
-        : card_number.split("");
+        : card_number?.split("");
 
     const formattedDate = date ? formatDate(date) : "XX / XX";
 
