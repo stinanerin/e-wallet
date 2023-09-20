@@ -14,7 +14,7 @@ export const Form = ({ formData, setFormData, handleSubmit }) => {
     // } = useSelector((state) => state.cards);
 
     const onChange = (e) => {
-        console.log("change", e.target.name);
+        // console.log("change", e.target.name);
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 

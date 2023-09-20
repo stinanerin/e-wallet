@@ -26,11 +26,8 @@ export const AddCard = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const data = new FormData(e.target);
-        console.log("data", data);
-
-        const cardData = Object.fromEntries(data.entries());
-        console.log("Object: entries", cardData);
+        const form = new FormData(e.target);
+        const cardData = Object.fromEntries(form.entries());
         //todo make sure vendor exisits
 
         const newCardObj = {
@@ -39,13 +36,13 @@ export const AddCard = () => {
             id: crypto.randomUUID(),
         };
 
-        console.log("newCardObj", newCardObj);
+        // console.log("newCardObj", newCardObj);
 
         dispatch(addCard(newCardObj));
         navigate("/");
     };
 
-    console.log(cards);
+    // console.log("cards", cards);
 
     return (
         <div>
