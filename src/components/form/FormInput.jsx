@@ -13,8 +13,6 @@ export const FormInput = (props) => {
         setBlur(true);
     };
 
-    // todo input dropdown focus state
-
     const showError = () => {
         if (inputProps.pattern) {
             const pattern = new RegExp(inputProps.pattern);
@@ -29,6 +27,7 @@ export const FormInput = (props) => {
 
         return false;
     };
+    // todo input dropdown focus state
 
     return (
         <div className="formInput">
@@ -36,7 +35,7 @@ export const FormInput = (props) => {
                 {label}
             </label>
             <input
-                className="uppercase rounded-md bg-elem_bg py-1 px-2 w-full text-text-default text-sm shadow-md disabled:text-text-low-contrast"
+                className="uppercase rounded-md bg-elem_bg py-1 px-2 w-full text-text-default text-sm shadow-md disabled:text-text-low-contrast disabled:opacity-50 focus:outline-none focus:ring focus:ring-primary-600"
                 {...inputProps}
                 maxLength={inputProps.maxLength}
                 onBlur={handleBlur}

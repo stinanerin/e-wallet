@@ -12,7 +12,7 @@ export const DropDown = ({ optionsObj, isReq, onChange }) => {
             <select
                 name={filter}
                 id={`filterBy${filter}`}
-                className="rounded-md bg-elem_bg py-1 px-2 w-full text-text text-sm shadow-md"
+                className="rounded-md bg-elem_bg py-1 px-2 w-full text-text text-sm shadow-md  focus:outline-none focus:ring focus:ring-primary-600"
                 onChange={onChange}
                 required={isReq}
             >
