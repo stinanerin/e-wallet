@@ -20,7 +20,7 @@ export const FormInput = (props) => {
     } = props;
 
     // console.log("valid", valid);
-    console.log("type", type);
+    // console.log("type", type);
 
     const handleBlur = () => {
         setBlur(true);

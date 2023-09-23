@@ -1,6 +1,5 @@
 import { DropDown } from "./DropDown";
 import { FormInput } from "./FormInput";
-import { FormLabel } from "./FormLabel";
 import { GradientPicker } from "./GradientPicker";
 
 import { Button } from "../Button";
@@ -64,31 +63,13 @@ export const Form = ({
                         );
                     }
                     if (input.name === "gradient") {
-                        console.log("hje", input);
                         return (
-                            <div key={input.id}>
-                                <FormLabel>{input.label}</FormLabel>
-                                <div className="flex gap-10">
-                                    {input.options.map((option) => {
-                                        console.log(option);
-                                        return (
-                                            <FormInput
-                                                key={option}
-                                                type={input.type}
-                                                value={option}
-                                                name={input.name}
-                                                label={option}
-                                                required={input.required}
-                                                checked={
-                                                    formData[input.name] ===
-                                                    option
-                                                }
-                                                onChange={onChange}
-                                            />
-                                        );
-                                    })}
-                                </div>
-                            </div>
+                            <GradientPicker
+                                key={input.name}
+                                {...input}
+                                formData={formData}
+                                onChange={onChange}
+                            />
                         );
                     }
                     return (

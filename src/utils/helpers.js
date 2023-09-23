@@ -26,7 +26,7 @@ export const splitArrIntoChunks = (arr, chunkSize) => {
 };
 
 export const generateDisplayFormat = (inputArray, maxLength, chunkNum) => {
-    console.log(inputArray);
+    // console.log(inputArray);
     const arr = inputArray ? [...inputArray] : [];
     while (arr.length < maxLength) {
         arr.push("X");
