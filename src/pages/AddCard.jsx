@@ -46,7 +46,7 @@ export const AddCard = () => {
     };
 
     return (
-        <div className=" flex flex-col items-center lg:flex-row md:gap-10 md:justify-center">
+        <div className=" flex flex-col items-center lg:flex-row gap-10 md:justify-center">
             {cards.length >= 4 ? (
                 <p>
                     You have reached your limit of four credit cards. You need
