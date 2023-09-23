@@ -10,6 +10,10 @@ export default {
     ],
     theme: {
         extend: {
+            backgroundImage: {
+                "gradient-25":
+                    "linear-gradient(60deg, var(--tw-gradient-stops))",
+            },
             fontFamily: {
                 poppins: ["Poppins", ...defaultTheme.fontFamily.sans],
                 credit: ['"Share Tech Mono"', ...defaultTheme.fontFamily.mono],
@@ -60,8 +64,17 @@ export default {
                 // warning_contrast:
                 // "hsl(var(--color-warning-contrast) / <alpha-value>)",
                 grey: {
+                    50: "hsl(var(--color-grey-50) / <alpha-value>)",
                     100: "hsl(var(--color-grey-100) / <alpha-value>)",
+                    200: "hsl(var(--color-grey-200) / <alpha-value>)",
                     300: "hsl(var(--color-grey-300) / <alpha-value>)",
+                    400: "hsl(var(--color-grey-400) / <alpha-value>)",
+                    500: "hsl(var(--color-grey-500) / <alpha-value>)",
+                    600: "hsl(var(--color-grey-600) / <alpha-value>)",
+                    700: "hsl(var(--color-grey-700) / <alpha-value>)",
+                    800: "hsl(var(--color-grey-800) / <alpha-value>)",
+                    900: "hsl(var(--color-grey-900) / <alpha-value>)",
+                    950: "hsl(var(--color-grey-950) / <alpha-value>)",
                 },
 
                 transparent: {

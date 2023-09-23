@@ -16,6 +16,7 @@ export const AddCard = () => {
         cvc: "",
         date: "",
         vendor: "",
+        gradient: "gradient-default",
     });
     const [isDatePassed, setIsDatePassed] = useState(false);
 

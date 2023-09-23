@@ -15,6 +15,16 @@ export const months = [
 
 export const cardVendors = ["Amex", "Visa", "MasterCard"];
 
+export const gradientMappings = {
+    "gradient-default": "from-grey-300 to-grey-600",
+    "gradient-1": "from-danger-400 to-violet-500",
+    "gradient-2": "from-blue-500 to-green-300",
+    "gradient-3": "from-yellow-300 to-pink-500",
+    "gradient-4": "from-teal-300 to-emerald-500",
+};
+
+const gradientOpt = Object.keys(gradientMappings);
+
 export const inputs = [
     {
         id: crypto.randomUUID(),
@@ -46,5 +56,14 @@ export const inputs = [
         placeholder: "date",
         required: true,
         label: "Date",
+    },
+    {
+        id: crypto.randomUUID(),
+        name: "gradient",
+        type: "radio",
+        errorMessage: "Please select a gradient",
+        label: "Select Gradient",
+        options: gradientOpt,
+        required: true,
     },
 ];
