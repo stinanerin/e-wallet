@@ -87,17 +87,17 @@ export const CardWrapper = () => {
                                             }`}
                                         >
                                             <Button
-                                                type="danger"
+                                                type="danger-secondary"
                                                 onClick={() =>
                                                     dispatch(delCard(card.id))
                                                 }
                                             >
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none"
+                                                    fill="currentColor"
                                                     viewBox="0 0 24 24"
                                                     strokeWidth={2}
-                                                    stroke="currentColor"
+                                                    stroke="var(--color-danger-50)"
                                                     className="w-6 h-6"
                                                 >
                                                     <path
