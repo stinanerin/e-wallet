@@ -16,14 +16,14 @@ export const months = [
 export const cardVendors = ["Amex", "Visa", "MasterCard"];
 
 export const gradientMappings = {
-    "gradient-1": "from-danger-500 to-violet-500",
-    "gradient-2": "from-blue-500 to-green-500",
-    "gradient-default": "from-grey-400 to-grey-600",
+    "gradient-default": "from-grey-300 to-grey-600",
+    "gradient-1": "from-danger-400 to-violet-500",
+    "gradient-2": "from-blue-500 to-green-300",
+    "gradient-3": "from-yellow-300 to-pink-500",
+    "gradient-4": "from-teal-300 to-emerald-500",
 };
 
 const gradientOpt = Object.keys(gradientMappings);
-console.log("gradientMappings", gradientMappings);
-console.log("gradientOpt", gradientOpt);
 
 export const inputs = [
     {
