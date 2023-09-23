@@ -69,21 +69,24 @@ export const Form = ({
                                 <p>{input.label}</p>
 
                                 <div className="flex gap-10">
-                                    {input.options.map((option) => (
-                                        <FormInput
-                                            key={option.value}
-                                            type={input.type}
-                                            value={option.value}
-                                            name={input.name}
-                                            label={option.label}
-                                            required={input.required}
-                                            checked={
-                                                formData[input.name] ===
-                                                option.value
-                                            }
-                                            onChange={onChange}
-                                        />
-                                    ))}
+                                    {input.options.map((option) => {
+                                        console.log(option);
+                                        return (
+                                            <FormInput
+                                                key={option}
+                                                type={input.type}
+                                                value={option}
+                                                name={input.name}
+                                                label={option}
+                                                required={input.required}
+                                                checked={
+                                                    formData[input.name] ===
+                                                    option
+                                                }
+                                                onChange={onChange}
+                                            />
+                                        );
+                                    })}
                                 </div>
                             </div>
                         );

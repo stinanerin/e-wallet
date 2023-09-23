@@ -21,6 +21,10 @@ export const gradientMappings = {
     "gradient-default": "from-grey-400 to-grey-600",
 };
 
+const gradientOpt = Object.keys(gradientMappings);
+console.log("gradientMappings", gradientMappings);
+console.log("gradientOpt", gradientOpt);
+
 export const inputs = [
     {
         id: crypto.randomUUID(),
@@ -59,10 +63,7 @@ export const inputs = [
         type: "radio",
         errorMessage: "Please select a gradient",
         label: "Select Gradient",
-        options: [
-            { value: "gradient-1", label: "Gradient 1" },
-            { value: "gradient-2", label: "Gradient 2" },
-        ],
+        options: gradientOpt,
         required: true,
     },
 ];

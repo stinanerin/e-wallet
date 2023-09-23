@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 
+import { getGradientClass } from "../../utils/helpers";
+
 export const FormInput = (props) => {
     const [blur, setBlur] = useState(false);
     const [showError, setShowError] = useState(false);
@@ -40,7 +42,13 @@ export const FormInput = (props) => {
 
     return (
         <div className="formInput">
-            <label className="block uppercase text-text-default text-xs font-bold mb-2 ">
+            <label
+                className={` ${
+                    type === "radio"
+                        ? "sr-only "
+                        : "block uppercase text-text-default text-xs font-bold mb-2"
+                } `}
+            >
                 {label}
             </label>
             <input
@@ -50,7 +58,8 @@ export const FormInput = (props) => {
                         : ""
                 }  ${
                     type === "radio"
-                        ? "text-primary-600"
+                        ? "text-primary-600 bg-gradient-25 " +
+                          getGradientClass(label)
                         : "rounded-md w-full text-text-default"
                 }
       uppercase border-0  bg-elem_bg py-1 px-2   text-sm shadow-md  disabled:opacity-50 focus:outline-none focus:ring focus:ring-primary-600`}
