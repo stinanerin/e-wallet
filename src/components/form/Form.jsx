@@ -34,7 +34,7 @@ export const Form = ({
     };
 
     return (
-        <div className="w-full py-8 bg-primary-500 shadow-2xl rounded max-w-md bg-gradient-to-t from-transparent-2 to-transparent-0">
+        <div className="w-full py-8 bg-primary-500 shadow-2xl rounded-xl max-w-md bg-gradient-to-t from-transparent-2 to-transparent-0">
             <h2 className="font-bold text-center mt-4 uppercase ">
                 Add new card
             </h2>

@@ -22,19 +22,26 @@ export const CreditCard = ({
     const formattedDate = date ? formatDate(date) : "XX / XX";
 
     return (
-        <div className="w-full font-credit px-4 py-6 bg-gray-400 rounded shadow-lg mb-5 max-w-md ">
-            <div className="flex justify-between svg-icon">
-                <img src={signalSvg} alt="#" className="w-7 " />
-                {vendor && (
-                    <img
-                        src={determineVendorSVG(vendor)}
-                        alt="#"
-                        className="w-10 "
-                    />
-                )}
+        <div
+            className={`w-full h-[204px] font-credit px-4 py-6 bg-gray-400 rounded-xl shadow-2xl mb-5 max-w-md   ${
+                !useDisplayFormat
+                    ? "transition-transform transform hover:scale-105 "
+                    : ""
+            } `}
+        >
+            <div className="h-[59px]">
+                <div className="flex justify-between svg-icon">
+                    <img src={signalSvg} alt="#" className="w-7 " />
+                    {vendor && (
+                        <img
+                            src={determineVendorSVG(vendor)}
+                            alt="#"
+                            className="w-10 "
+                        />
+                    )}
+                </div>
+                <img src={chipSvg} alt="#" className="w-7 mb-3 mt-1" />
             </div>
-
-            <img src={chipSvg} alt="#" className="w-7 mb-3 mt-1" />
 
             <p className="text-2xl text-text-contrast flex gap-3">
                 {splitArrIntoChunks(formattedNumber, 4).map((chunk, i) => {
