@@ -1,5 +1,6 @@
 import { DropDown } from "./DropDown";
 import { FormInput } from "./FormInput";
+import { FormLabel } from "./FormLabel";
 import { GradientPicker } from "./GradientPicker";
 
 import { Button } from "../Button";
@@ -66,8 +67,7 @@ export const Form = ({
                         console.log("hje", input);
                         return (
                             <div key={input.id}>
-                                <p>{input.label}</p>
-
+                                <FormLabel>{input.label}</FormLabel>
                                 <div className="flex gap-10">
                                     {input.options.map((option) => {
                                         console.log(option);

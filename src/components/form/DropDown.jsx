@@ -1,14 +1,14 @@
+import { FormLabel } from "./FormLabel";
+
 export const DropDown = ({ optionsObj, isReq, onChange }) => {
     const { filter, arr } = optionsObj;
 
     return (
         <>
-            <label
-                className="block uppercase text-text text-xs font-bold mb-2"
-                htmlFor={`filterBy${filter}`}
-            >
+            <FormLabel htmlFor={`filterBy${filter}`}>
                 Choose {filter}:
-            </label>
+            </FormLabel>
+
             <select
                 name={filter}
                 id={`filterBy${filter}`}
