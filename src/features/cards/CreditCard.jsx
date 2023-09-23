@@ -23,20 +23,20 @@ export const CreditCard = ({
 
     return (
         <div
-            className={`w-full h-[204px] font-credit px-4 py-6 bg-gray-400 rounded-xl shadow-2xl mb-5 max-w-md   ${
+            className={`w-96 h-56 font-credit px-4 py-6 bg-gray-400 rounded-xl shadow-2xl mb-5 max-w-md   ${
                 !useDisplayFormat
                     ? "transition-transform transform hover:scale-105 "
                     : ""
             } `}
         >
-            <div className="h-[59px]">
+            <div className="h-[65px]">
                 <div className="flex justify-between svg-icon">
                     <img src={signalSvg} alt="#" className="w-7 " />
                     {vendor && (
                         <img
                             src={determineVendorSVG(vendor)}
                             alt="#"
-                            className="w-10 "
+                            className="h-7 "
                         />
                     )}
                 </div>
