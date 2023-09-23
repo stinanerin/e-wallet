@@ -14,16 +14,37 @@ export const CreditCard = ({
     vendor,
     user: { first, last },
     useDisplayFormat = false,
+    selectedGradient,
 }) => {
+    const gradientMappings = {
+        "gradient-1": "from-danger-500 to-violet-500",
+        "gradient-2": "from-blue-500 to-green-500",
+        "gradient-default": "from-grey-400 to-grey-600",
+        // Add more gradient options here
+    };
+
+    const getGradientClass = (selectedGradient) => {
+        switch (selectedGradient) {
+            case "gradient-1":
+                return gradientMappings["gradient-1"];
+            case "gradient-2":
+                return gradientMappings["gradient-2"];
+            // Add more cases for other gradient options
+            default:
+                return gradientMappings["gradient-default"];
+        }
+    };
+
     const formattedNumber = useDisplayFormat
         ? generateDisplayFormat(card_number, 16)
         : card_number?.split("");
 
     const formattedDate = date ? formatDate(date) : "XX / XX";
+    const gradientClass = getGradientClass(selectedGradient);
 
     return (
         <div
-            className={`w-full max-w-96 h-56 font-credit px-4 py-6 bg-gray-400 rounded-xl shadow-2xl max-w-md   ${
+            className={`w-full  max-w-96 h-56 font-credit px-4 py-6 rounded-xl shadow-2xl max-w-md bg-gradient-25 ${gradientClass}  ${
                 !useDisplayFormat
                     ? "transition-transform transform sm:hover:scale-105 "
                     : ""
