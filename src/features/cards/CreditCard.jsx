@@ -23,9 +23,9 @@ export const CreditCard = ({
 
     return (
         <div
-            className={`w-96 h-56 font-credit px-4 py-6 bg-gray-400 rounded-xl shadow-2xl mb-5 max-w-md   ${
+            className={`w-full max-w-96 h-56 font-credit px-4 py-6 bg-gray-400 rounded-xl shadow-2xl max-w-md   ${
                 !useDisplayFormat
-                    ? "transition-transform transform hover:scale-105 "
+                    ? "transition-transform transform sm:hover:scale-105 "
                     : ""
             } `}
         >
