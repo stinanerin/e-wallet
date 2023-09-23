@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 
-
-
+  .card.hovered {
+    transform: translateY(-20px); 
+    
+  }
 
 @layer base {   
 
