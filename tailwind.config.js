@@ -3,7 +3,11 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
-    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+        "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+    ],
     theme: {
         extend: {
             fontFamily: {
@@ -72,7 +76,7 @@ export default {
             ...defaultTheme.screens,
         },
     },
-    plugins: [],
+    plugins: [require("flowbite/plugin")],
     // Removes all unused css
     // purge: {
     //     enabled: true,
