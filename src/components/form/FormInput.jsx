@@ -55,9 +55,9 @@ export const FormInput = (props) => {
                     type === "radio"
                         ? " text-primary-600 bg-gradient-25 " +
                           getGradientClass(label)
-                        : " rounded-md w-full text-text-default "
+                        : " rounded-md w-full  "
                 }
-      uppercase border-0  bg-elem_bg py-1 px-2   text-sm shadow-md  disabled:opacity-50 focus:outline-none focus:ring focus:ring-primary-600 `}
+                    uppercase border-0  bg-elem_bg py-1 px-2  text-black text-sm shadow-md  disabled:opacity-50 focus:outline-none focus:ring focus:ring-primary-600 `}
                 {...inputProps}
                 type={type}
                 maxLength={inputProps.maxLength}

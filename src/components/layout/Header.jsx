@@ -1,14 +1,17 @@
+import { ToggleDarkMode } from "../ToggleDarkMode";
+
 import { Link } from "react-router-dom";
 
 export const Header = ({ user: { first } }) => {
     return (
-        <header className=" p-3 bg-gradient-to-b from-transparent-0 to-bkg ">
+        <header className=" p-3 bg-gradient-to-b from-transparent-0 to-bkg text-text-default ">
             <div className="flex justify-between items-end max-w-7xl m-auto">
                 <div
                     className={`${
                         !first ? "w-[70px]" : ""
-                    } flex gap-2 text-md sm:text-lg  font-bold tracking-tight text-text-default`}
+                    } flex items-center gap-2 text-md sm:text-lg  font-bold tracking-tight `}
                 >
+                    <ToggleDarkMode></ToggleDarkMode>
                     {first && (
                         <>
                             <svg
@@ -31,13 +34,13 @@ export const Header = ({ user: { first } }) => {
                 </div>
                 <Link
                     to="/"
-                    className=" text-2xl sm:text-3xl uppercase font-bold tracking-tight text-text-default"
+                    className=" text-2xl sm:text-3xl uppercase font-bold tracking-tight"
                 >
                     E-wallet
                 </Link>
                 <Link
                     to="/add"
-                    className=" text-md sm:text-lg uppercase font-bold tracking-tight text-text-default"
+                    className=" text-md sm:text-lg uppercase font-bold tracking-tight "
                 >
                     Add card
                 </Link>

@@ -19,7 +19,7 @@ export const Root = () => {
     return (
         <>
             <Header user={user} />
-            <main className="mx-4 mt-10">
+            <main className="mx-4 mt-10 text-text-default">
                 {
                     // <p>Status: {status}</p>
                 }
