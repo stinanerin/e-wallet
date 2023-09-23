@@ -71,7 +71,12 @@ export const CardWrapper = () => {
                                     onMouseLeave={() => handleCardHover(null)}
                                 >
                                     <div className="w-full absolute top-0 left-0 duration-300 flex flex-col  sm:flex-row gap-4">
-                                        <div className="opacity-100 min-w-full">
+                                        <div
+                                            className="opacity-100 min-w-full"
+                                            onClick={() =>
+                                                dispatch(setActiveCard(card.id))
+                                            }
+                                        >
                                             <CreditCard {...card} user={user} />
                                         </div>
                                         <div
@@ -81,16 +86,6 @@ export const CardWrapper = () => {
                                                     : "invisible"
                                             }`}
                                         >
-                                            <Button
-                                                type="primary"
-                                                onClick={() =>
-                                                    dispatch(
-                                                        setActiveCard(card.id)
-                                                    )
-                                                }
-                                            >
-                                                Activate
-                                            </Button>
                                             <Button
                                                 type="secondary"
                                                 onClick={() =>
