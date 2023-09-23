@@ -1,5 +1,5 @@
 import amex from "./../assets/logos/amex.svg";
-import mastercard from "./../assets/logos/mastercard.svg";
+import mastercard from "./../assets/logos/mastercard.png";
 import visa from "./../assets/logos/visa.svg";
 
 import { months } from "../config/config";
