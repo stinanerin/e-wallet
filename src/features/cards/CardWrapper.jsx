@@ -55,7 +55,6 @@ export const CardWrapper = () => {
                                     card.id === hoveredCard ? 100 : 100 - index
                                 }`,
                             };
-                            console.log(index * 80);
                             if (card.id === activeCard) {
                                 return "";
                             }

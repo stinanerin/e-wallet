@@ -6,6 +6,7 @@ import {
     splitArrIntoChunks,
     generateDisplayFormat,
     formatDate,
+    getGradientClass,
 } from "../../utils/helpers";
 
 export const CreditCard = ({
@@ -14,33 +15,14 @@ export const CreditCard = ({
     vendor,
     user: { first, last },
     useDisplayFormat = false,
-    selectedGradient,
+    gradient,
 }) => {
-    const gradientMappings = {
-        "gradient-1": "from-danger-500 to-violet-500",
-        "gradient-2": "from-blue-500 to-green-500",
-        "gradient-default": "from-grey-400 to-grey-600",
-        // Add more gradient options here
-    };
-
-    const getGradientClass = (selectedGradient) => {
-        switch (selectedGradient) {
-            case "gradient-1":
-                return gradientMappings["gradient-1"];
-            case "gradient-2":
-                return gradientMappings["gradient-2"];
-            // Add more cases for other gradient options
-            default:
-                return gradientMappings["gradient-default"];
-        }
-    };
-
     const formattedNumber = useDisplayFormat
         ? generateDisplayFormat(card_number, 16)
         : card_number?.split("");
 
     const formattedDate = date ? formatDate(date) : "XX / XX";
-    const gradientClass = getGradientClass(selectedGradient);
+    const gradientClass = getGradientClass(gradient);
 
     return (
         <div

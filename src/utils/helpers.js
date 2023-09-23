@@ -2,7 +2,19 @@ import amex from "./../assets/logos/amex.svg";
 import mastercard from "./../assets/logos/mastercard.png";
 import visa from "./../assets/logos/visa.svg";
 
-import { months } from "../config/config";
+import { months, gradientMappings } from "../config/config";
+
+export const getGradientClass = (selectedGradient) => {
+    switch (selectedGradient) {
+        case "gradient-1":
+            return gradientMappings["gradient-1"];
+        case "gradient-2":
+            return gradientMappings["gradient-2"];
+        // Add more cases for other gradient options
+        default:
+            return gradientMappings["gradient-default"];
+    }
+};
 
 export const splitArrIntoChunks = (arr, chunkSize) => {
     // console.log(arr);
