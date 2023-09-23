@@ -61,3 +61,12 @@ export const hasDatePassed = (d1, d2) => {
     // Create a new date of the existing dates to cancel out the time
     return new Date(d1.toDateString()) < new Date(d2.toDateString());
 };
+
+export const userPrefersDarkMode = () => {
+    if (window.matchMedia) {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return true;
+        }
+    }
+    return false;
+};
