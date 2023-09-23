@@ -1,4 +1,4 @@
-export const Button = ({ onClick, type, children, disabled }) => {
+export const Button = ({ onClick, type, children, disabled, aria }) => {
     let buttonClasses = "uppercase font-bold text-sm py-2 px-4 rounded w-max ";
 
     switch (type) {
@@ -27,7 +27,12 @@ export const Button = ({ onClick, type, children, disabled }) => {
     }
 
     return (
-        <button onClick={onClick} className={buttonClasses} disabled={disabled}>
+        <button
+            onClick={onClick}
+            className={buttonClasses}
+            disabled={disabled}
+            aria-label={aria}
+        >
             {children}
         </button>
     );
