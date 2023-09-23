@@ -5,7 +5,7 @@ export const FormLabel = ({ htmlFor, type, children }) => {
             className={` ${
                 type === "radio"
                     ? "sr-only "
-                    : "block uppercase text-text-default text-xs font-bold mb-2"
+                    : "block uppercase  text-xs font-bold mb-2"
             } `}
         >
             {children}

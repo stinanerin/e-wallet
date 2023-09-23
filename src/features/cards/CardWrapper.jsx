@@ -82,7 +82,7 @@ export const CardWrapper = () => {
                                             <CreditCard {...card} user={user} />
                                         </div>
                                         <div
-                                            className={` absolute -top-6 -right-9 ${
+                                            className={` absolute -top-6 -right-6 ${
                                                 card.id === hoveredCard
                                                     ? ""
                                                     : "invisible"
@@ -90,7 +90,7 @@ export const CardWrapper = () => {
                                         >
                                             <Tooltip content="Delete">
                                                 <Button
-                                                    type="danger-secondary"
+                                                    type="tertiary"
                                                     aria={`Delete credit card with cc number ${card.card_number}`}
                                                     onClick={() =>
                                                         dispatch(

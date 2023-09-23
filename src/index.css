@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 
-  .card.hovered {
-    transform: translateY(-20px); 
-    
-  }
+.card.hovered {
+  transform: translateY(-20px); 
+}
 
 @layer base {   
 
@@ -34,7 +33,7 @@
         --color-grey-700: 0 0% 45%;
         --color-grey-800: 0 0% 35%;
         --color-grey-900: 0 0% 25%;
-        --color-grey-950: 0 0% 15%;
+        --color-grey-950: 0 0% 5%;
 
         --color-white:  0 0% 100%;
         --color-black:  0 0% 0%;
@@ -81,38 +80,15 @@
         --color-text-low-contrast: var(--color-grey-600);
 
     }
-    @media (prefers-color-scheme: dark) {
-        :root {
-
-            --color-elem-bg: var(--color-grey-800);
-            --color-elem-border: var(--color-grey-500);
-
-            --color-bg: var(--color-primary-700);
-            --color-text: 0 0% 100%;
-            --color-text-contrast: var(--color-black);
-
-            --color-warning: var(--color-warning-400);
-            --color-primary: var(--color-primary-400);
-            --color-danger:  var(--color-danger-400);
-
-
-        }
-    }
+   
     :root[data-theme="dark"] {
-        
+    
+      --color-elem-bg: var(--color-grey-800);
+      --color-elem-border: var(--color-grey-500);
 
-            --color-elem-bg: var(--color-grey-800);
-            --color-elem-border: var(--color-grey-500);
-
-            --color-bg: var(--color-blue-800);
-            --color-text: 0 0% 100%;
-            --color-text-low-contrast: var(--color-grey-600);
-
-            --color-warning: var(--color-warning-400);
-            --color-primary: var(--color-primary-400);
-            --color-danger:  var(--color-danger-400);
-
-
+      --color-bg: var(--color-grey-950);
+      --color-text: 0 0% 100%;
+      --color-text-low-contrast: var(--color-grey-600);
 
     }
   }

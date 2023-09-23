@@ -10,14 +10,15 @@ export const Button = ({ onClick, type, children, disabled, aria }) => {
             buttonClasses +=
                 " border-2 border-primary-800 text-primary-800 hover:bg-primary-100 active:bg-primary-100 focus:bg-primary-10 focus:outline-none focus:ring focus:ring-primary-400";
             break;
+        case "tertiary":
+            buttonClasses +=
+                "rounded-full py-0 px-0 text-text-default hover:scale-125 ";
+            break;
         case "danger-primary":
             buttonClasses +=
                 " border-2 border-danger-500 text-danger-500 hover:bg-danger-100 active:bg-danger-100 focus:bg-danger-100 focus:outline-none focus:ring focus:ring-danger-300";
             break;
-        case "danger-secondary":
-            buttonClasses +=
-                "rounded-full hover:scale-125 p-0 text-text-default focus:outline-none focus:ring focus:ring-text-default";
-            break;
+
         default:
             break;
     }
