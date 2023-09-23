@@ -18,48 +18,54 @@ export const CardWrapper = () => {
     const activeCardComponent = cardsArr.find((card) => card.id === activeCard);
 
     return (
-        <div>
-            <h2 className="font-poppins font-bold text-md">Active card:</h2>
-
-            <div key={activeCardComponent.id}>
-                <CreditCard {...activeCardComponent} user={user} />
-                <p></p>
+        <div className="flex flex-col items-center ">
+            <div className="w-full max-w-md">
+                <h2 className="font-poppins font-bold text-md uppercase mb-4">
+                    Active card
+                </h2>
+                <div key={activeCardComponent.id}>
+                    <CreditCard {...activeCardComponent} user={user} />
+                    <p></p>
+                </div>
+                {cardsArr.length > 1 && (
+                    <h2 className="font-bold text-md uppercase mb-4">
+                        Inactive cards
+                    </h2>
+                )}
+                <div>
+                    {cardsArr &&
+                        cardsArr.map((card) => {
+                            if (card.id === activeCard) {
+                                return "";
+                            }
+                            return (
+                                <div key={card.id}>
+                                    <div className="opacity-60">
+                                        <CreditCard {...card} user={user} />
+                                    </div>
+                                    <div className="flex gap-10 mb-5">
+                                        <Button
+                                            type="primary"
+                                            onClick={() =>
+                                                dispatch(setActiveCard(card.id))
+                                            }
+                                        >
+                                            Activate
+                                        </Button>
+                                        <Button
+                                            type="secondary"
+                                            onClick={() =>
+                                                dispatch(delCard(card.id))
+                                            }
+                                        >
+                                            Delete
+                                        </Button>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                </div>
             </div>
-            {cardsArr.length > 1 && (
-                <h2 className="font-bold text-md">Inactive cards</h2>
-            )}
-
-            {cardsArr &&
-                cardsArr.map((card) => {
-                    if (card.id === activeCard) {
-                        return "";
-                    }
-
-                    return (
-                        <div key={card.id}>
-                            <div className="opacity-60">
-                                <CreditCard {...card} user={user} />
-                            </div>
-                            <div className="flex gap-10 mb-5">
-                                <Button
-                                    type="primary"
-                                    onClick={() =>
-                                        dispatch(setActiveCard(card.id))
-                                    }
-                                >
-                                    Activate
-                                </Button>
-
-                                <Button
-                                    type="secondary"
-                                    onClick={() => dispatch(delCard(card.id))}
-                                >
-                                    Delete
-                                </Button>
-                            </div>
-                        </div>
-                    );
-                })}
         </div>
     );
 };
