@@ -59,7 +59,7 @@ export const CardWrapper = () => {
                             return (
                                 <div
                                     key={card.id}
-                                    className={`card w-full  ${
+                                    className={`card relative w-full  ${
                                         card.id === hoveredCard
                                             ? "hovered "
                                             : ""
@@ -70,7 +70,7 @@ export const CardWrapper = () => {
                                     }
                                     onMouseLeave={() => handleCardHover(null)}
                                 >
-                                    <div className="w-full absolute top-0 left-0 duration-300 flex flex-col  sm:flex-row gap-4">
+                                    <div className="w-full absolute top-0 left-0 duration-300 ">
                                         <div
                                             className="opacity-100 min-w-full"
                                             onClick={() =>
@@ -80,7 +80,7 @@ export const CardWrapper = () => {
                                             <CreditCard {...card} user={user} />
                                         </div>
                                         <div
-                                            className={`flex sm:flex-col justify-evenly ${
+                                            className={` absolute -top-6 -right-6 ${
                                                 card.id === hoveredCard
                                                     ? ""
                                                     : "invisible"
