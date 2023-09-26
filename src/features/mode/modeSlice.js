@@ -8,8 +8,8 @@ const modeSlice = createSlice({
         darkMode: userPrefersDarkMode(),
     },
     reducers: {
-        setMode: (state) => {
-            state.darkMode = !state.darkMode;
+        setMode: (state, action) => {
+            state.darkMode = action.payload;
         },
     },
 });
