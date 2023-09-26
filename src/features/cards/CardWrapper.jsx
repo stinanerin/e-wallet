@@ -16,6 +16,7 @@ export const CardWrapper = () => {
         cards: cardsArr,
         user,
     } = useSelector((state) => state.cards);
+    const { darkMode } = useSelector((state) => state.darkMode);
 
     const activeCardComponent = cardsArr.find((card) => card.id === activeCard);
 
@@ -88,7 +89,13 @@ export const CardWrapper = () => {
                                                     : "invisible"
                                             }`}
                                         >
-                                            <Tooltip content="Delete">
+                                            <Tooltip
+                                                content="Delete"
+                                                animation="duration-500"
+                                                style={
+                                                    darkMode ? "light" : "dark"
+                                                }
+                                            >
                                                 <Button
                                                     type="tertiary"
                                                     aria={`Delete credit card with cc number ${card.card_number}`}

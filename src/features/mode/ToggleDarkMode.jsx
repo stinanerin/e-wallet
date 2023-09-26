@@ -26,6 +26,7 @@ export const ToggleDarkMode = () => {
 
     return (
         <Tooltip
+            animation="duration-500"
             content={darkMode ? "Light mode" : "Dark mode"}
             style={darkMode ? "light" : "dark"}
         >
