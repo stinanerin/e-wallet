@@ -4,7 +4,7 @@ export const Button = ({ onClick, type, children, disabled, aria }) => {
     switch (type) {
         case "primary":
             buttonClasses +=
-                " py-2 px-4 text-white bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-600 hover:to-primary-900 active:from-primary-600 active:to-primary-800 focus:from-primary-600 focus:to-primary-800 focus:outline-none focus:ring focus:ring-primary-200";
+                " py-2 px-4 text-white bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-500 hover:to-primary-700 active:from-primary-600 active:to-primary-800 focus:from-primary-600 focus:to-primary-800 focus:outline-none focus:ring focus:ring-primary-300";
             break;
         case "secondary":
             buttonClasses +=

@@ -106,7 +106,21 @@
 
       --color-bg: var(--color-grey-950);
       --color-text: 0 0% 100%;
+      --color-text-contrast: var(--color-black);
+
       --color-text-low-contrast: var(--color-grey-600);
+
+      --color-primary-950:191 58% 96%;
+        --color-primary-900: 189 55% 90%;
+        --color-primary-800: 191 55% 82%;
+        --color-primary-700: 192 54% 66%;
+        --color-primary-600: 193 50% 53%;
+        --color-primary-500: 193 55% 43%;
+        --color-primary-400: 197 54% 36%;
+        --color-primary-300: 198 48% 31%;
+        --color-primary-200: 199 41% 27%;
+        --color-primary-100: 201 37% 24%;
+        --color-primary-50: 202 47% 15%;
 
     }
   }

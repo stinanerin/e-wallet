@@ -90,12 +90,7 @@ export default {
         },
     },
     plugins: [require("flowbite/plugin")],
-    corePlugins: {
-        // Enable the 'gradientColorStops' core plugin for gradient utilities
-        background: false,
-        // Enable the 'ringColor' and 'ringWidth' core plugins for ring utilities
-        ring: false,
-    },
+
     // Removes all unused css
     // purge: {
     //     enabled: true,
