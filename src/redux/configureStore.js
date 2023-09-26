@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import cardReducer from "../features/cards/cardsSlice";
+import modeReducer from "../features/mode/modeSlice";
 
 const store = configureStore({
     reducer: {
         cards: cardReducer,
+        darkMode: modeReducer,
     },
 });
 

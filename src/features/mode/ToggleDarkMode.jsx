@@ -1,17 +1,26 @@
-import { useState } from "react";
-import { Button } from "./Button";
-
-import { userPrefersDarkMode } from "../utils/helpers";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { setMode } from "./modeSlice";
+import { Button } from "../../components/Button";
 
 export const ToggleDarkMode = () => {
-    const [darkMode, setDarkMode] = useState(userPrefersDarkMode());
+    const dispatch = useDispatch();
+    const { darkMode } = useSelector((state) => state.darkMode);
 
     const toggleDarkMode = () => {
-        console.log(darkMode);
-        setDarkMode(!darkMode);
-        const root = document.documentElement;
-        root.setAttribute("data-theme", darkMode ? "light" : "dark");
+        console.log("darkMode", darkMode);
+        dispatch(setMode(!darkMode));
+        // updateTheme(darkMode);
     };
+
+    const updateTheme = (darkMode) => {
+        const root = document.documentElement;
+        root.setAttribute("data-theme", darkMode ? "dark" : "light");
+    };
+
+    useEffect(() => {
+        updateTheme(darkMode);
+    }, [darkMode]);
 
     return (
         <Button type="tertiary" onClick={toggleDarkMode}>

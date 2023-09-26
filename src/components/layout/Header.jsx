@@ -1,4 +1,4 @@
-import { ToggleDarkMode } from "../ToggleDarkMode";
+import { ToggleDarkMode } from "../../features/mode/ToggleDarkMode";
 
 import { Link } from "react-router-dom";
 
