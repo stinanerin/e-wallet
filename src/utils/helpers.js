@@ -10,6 +10,11 @@ export const getGradientClass = (selectedGradient) => {
     return gradientMappings[selectedGradient];
 };
 
+export const blockInvalidChar = (string) => {
+    const cleansedValue = string.replace(/\D/g, "");
+    return cleansedValue;
+};
+
 export const splitArrIntoChunks = (arr, chunkSize) => {
     // console.log(arr);
     if (!arr) return [];
