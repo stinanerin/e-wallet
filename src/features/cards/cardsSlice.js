@@ -7,14 +7,13 @@ const getStateFromLocalStorage = () => {
     return localStorageItem ? JSON.parse(localStorageItem) : {};
 };
 
-//todo upådate intital card to new format
-
 const initialCard = {
     cvc: "098",
     date: "2023-11-13",
     card_number: "1234567891234567",
     vendor: "Visa",
     id: crypto.randomUUID(),
+    gradient: "gradient-default",
 };
 
 const initialState = {
@@ -53,7 +52,7 @@ const cardSlice = createSlice({
         },
     },
     extraReducers: {
-        [getRandomUser.pending]: (state, action) => {
+        [getRandomUser.pending]: (state) => {
             state.status = "Loading...";
         },
         [getRandomUser.fulfilled]: (state, action) => {
@@ -61,7 +60,7 @@ const cardSlice = createSlice({
             state.user = action.payload;
             state.status = "Success";
         },
-        [getRandomUser.rejected]: (state, action) => {
+        [getRandomUser.rejected]: (state) => {
             state.status = "Failed";
         },
     },

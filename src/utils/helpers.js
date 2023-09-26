@@ -64,7 +64,9 @@ export const hasDatePassed = (d1, d2) => {
 
 export const userPrefersDarkMode = () => {
     if (window.matchMedia) {
+        console.log("hej");
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            console.log("user prefers dark mdoe");
             return true;
         }
     }
