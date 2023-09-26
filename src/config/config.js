@@ -36,6 +36,7 @@ export const inputs = [
         maxLength: 16,
         pattern: "[0-9]{16}",
         required: true,
+        numericOnly: true,
     },
     {
         id: crypto.randomUUID(),
@@ -47,6 +48,7 @@ export const inputs = [
         maxLength: 3,
         label: "cvc",
         required: true,
+        numericOnly: true,
     },
     {
         id: crypto.randomUUID(),

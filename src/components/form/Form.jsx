@@ -5,7 +5,7 @@ import { GradientPicker } from "./GradientPicker";
 import { Button } from "../Button";
 
 import { cardVendors, inputs } from "../../config/config";
-import { hasDatePassed } from "../../utils/helpers";
+import { hasDatePassed, blockInvalidChar } from "../../utils/helpers";
 
 import { useSelector } from "react-redux";
 
@@ -22,14 +22,23 @@ export const Form = ({
 
     const onChange = (e) => {
         const elem = e.target;
-        console.log("change", elem.name);
 
         if (elem.name === "date") {
             const pickedDate = new Date(elem.value);
             const currentDate = new Date();
             const isDatePassed = hasDatePassed(pickedDate, currentDate);
-            console.log("isDatePassed", isDatePassed);
             setIsDatePassed(isDatePassed);
+        }
+        if (elem.type === "text") {
+            const inputConfig = inputs.find(
+                (input) => input.name === elem.name
+            );
+
+            if (inputConfig && inputConfig.numericOnly) {
+                const cleansedValue = blockInvalidChar(elem.value);
+                setFormData({ ...formData, [elem.name]: cleansedValue });
+                return;
+            }
         }
 
         setFormData({ ...formData, [elem.name]: elem.value });
@@ -62,6 +71,7 @@ export const Form = ({
                             />
                         );
                     }
+
                     if (input.name === "gradient") {
                         return (
                             <GradientPicker
