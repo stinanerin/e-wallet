@@ -1,6 +1,8 @@
-import { ToggleDarkMode } from "../../features/mode/ToggleDarkMode";
+import { ToggleDarkMode } from "../features/mode/ToggleDarkMode";
 
 import { Link } from "react-router-dom";
+
+import { FancyLink } from "./FancyLink";
 
 export const Header = ({ user: { first } }) => {
     return (
@@ -12,6 +14,7 @@ export const Header = ({ user: { first } }) => {
                     } flex items-center gap-2 text-md sm:text-lg  font-bold tracking-tight `}
                 >
                     <ToggleDarkMode></ToggleDarkMode>
+
                     {first && (
                         <>
                             <svg
@@ -32,18 +35,10 @@ export const Header = ({ user: { first } }) => {
                         </>
                     )}
                 </div>
-                <Link
-                    to="/"
-                    className=" text-2xl sm:text-3xl uppercase font-bold tracking-tight"
-                >
-                    E-wallet
-                </Link>
-                <Link
-                    to="/add"
-                    className=" text-sm sm:text-lg uppercase font-bold tracking-tight "
-                >
+                <FancyLink route="/">E-wallet</FancyLink>
+                <FancyLink route="/add" textSize="lg">
                     Add card
-                </Link>
+                </FancyLink>
             </div>
         </header>
     );
