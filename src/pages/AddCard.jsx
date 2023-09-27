@@ -40,8 +40,6 @@ export const AddCard = () => {
 
             dispatch(addCard(newCardObj));
             navigate("/");
-        } else {
-            //todo
         }
     };
 

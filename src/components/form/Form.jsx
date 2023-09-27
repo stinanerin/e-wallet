@@ -22,16 +22,15 @@ export const Form = ({
 
     const onChange = (e) => {
         const elem = e.target;
-        console.log("change", elem.name);
 
         if (elem.name === "date") {
             const pickedDate = new Date(elem.value);
             const currentDate = new Date();
+
             const isDatePassed = hasDatePassed(pickedDate, currentDate);
-            console.log("isDatePassed", isDatePassed);
+
             setIsDatePassed(isDatePassed);
         }
-
         setFormData({ ...formData, [elem.name]: elem.value });
     };
 

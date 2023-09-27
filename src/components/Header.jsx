@@ -1,7 +1,5 @@
 import { ToggleDarkMode } from "../features/mode/ToggleDarkMode";
 
-import { Link } from "react-router-dom";
-
 import { FancyLink } from "./FancyLink";
 
 export const Header = ({ user: { first } }) => {

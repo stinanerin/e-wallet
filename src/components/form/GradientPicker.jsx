@@ -16,7 +16,6 @@ export const GradientPicker = ({
             <FormLabel>{label}</FormLabel>
             <div className="flex gap-10">
                 {options.map((option) => {
-                    console.log(option);
                     return (
                         <FormInput
                             key={option}

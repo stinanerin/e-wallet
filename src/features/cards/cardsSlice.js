@@ -43,11 +43,9 @@ const cardSlice = createSlice({
         },
         delCard: (state, action) => {
             const cardId = action.payload;
-            console.log("cardId", cardId);
             const filteredCards = state.cards.filter(
                 (card) => card.id !== cardId
             );
-            // Pga filter muterar ej ursprungsarrayen
             state.cards = filteredCards;
         },
     },
@@ -56,7 +54,6 @@ const cardSlice = createSlice({
             state.status = "Loading...";
         },
         [getRandomUser.fulfilled]: (state, action) => {
-            console.log("hej", action.payload);
             state.user = action.payload;
             state.status = "Success";
         },

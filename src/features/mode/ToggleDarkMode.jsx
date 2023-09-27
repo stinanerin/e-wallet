@@ -10,9 +10,7 @@ export const ToggleDarkMode = () => {
     const { darkMode } = useSelector((state) => state.darkMode);
 
     const toggleDarkMode = () => {
-        console.log("darkMode", darkMode);
         dispatch(setMode(!darkMode));
-        // updateTheme(darkMode);
     };
 
     const updateTheme = (darkMode) => {

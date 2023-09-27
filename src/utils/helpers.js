@@ -11,7 +11,6 @@ export const getGradientClass = (selectedGradient) => {
 };
 
 export const splitArrIntoChunks = (arr, chunkSize) => {
-    // console.log(arr);
     if (!arr) return [];
     const resultArray = arr.reduce((acc, curr, i) => {
         const index = Math.floor(i / chunkSize);
@@ -26,7 +25,6 @@ export const splitArrIntoChunks = (arr, chunkSize) => {
 };
 
 export const generateDisplayFormat = (inputArray, maxLength, chunkNum) => {
-    // console.log(inputArray);
     const arr = inputArray ? [...inputArray] : [];
     while (arr.length < maxLength) {
         arr.push("X");
@@ -64,9 +62,7 @@ export const hasDatePassed = (d1, d2) => {
 
 export const userPrefersDarkMode = () => {
     if (window.matchMedia) {
-        console.log("hej");
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            console.log("user prefers dark mdoe");
             return true;
         }
     }

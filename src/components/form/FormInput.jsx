@@ -19,9 +19,6 @@ export const FormInput = (props) => {
         ...inputProps
     } = props;
 
-    // console.log("valid", valid);
-    // console.log("type", type);
-
     const handleBlur = () => {
         setBlur(true);
     };
