@@ -95,7 +95,7 @@
         --color-bg: var(--color-grey-50);
         --color-text: var(--color-black);
         --color-text-contrast: var(--color-white);
-        --color-text-low-contrast: var(--color-grey-600);
+        --color-text-low-contrast: var(--color-grey-800);
 
     }
    
@@ -108,7 +108,7 @@
       --color-text: 0 0% 100%;
       --color-text-contrast: var(--color-black);
 
-      --color-text-low-contrast: var(--color-grey-600);
+      --color-text-low-contrast: var(--color-grey-800);
 
       --color-primary-950:191 58% 96%;
         --color-primary-900: 189 55% 90%;
