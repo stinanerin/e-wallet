@@ -48,19 +48,27 @@ export const CreditCard = ({
 
             <p className="text-2xl flex gap-3">
                 {splitArrIntoChunks(formattedNumber, 4).map((chunk, i) => {
-                    return <span key={chunk + i}>{chunk}</span>;
+                    return (
+                        <span className="drop-shadow-credit	" key={chunk + i}>
+                            {chunk}
+                        </span>
+                    );
                 })}
             </p>
             <div className="flex justify-between mt-6">
                 <div>
-                    <p className="uppercase text-xs font-bold ">
+                    <p className="uppercase text-xs font-bold drop-shadow-credit ">
                         Card holder name
                     </p>
-                    <p className="uppercase text-sm ">{first + " " + last}</p>
+                    <p className="uppercase text-sm drop-shadow-credit ">
+                        {first + " " + last}
+                    </p>
                 </div>
                 <div>
-                    <p className="uppercase text-xs font-bold ">valid thru</p>
-                    <p className="uppercase text-sm  text-end">
+                    <p className="uppercase text-xs font-bold drop-shadow-credit">
+                        valid thru
+                    </p>
+                    <p className="uppercase text-sm  text-end drop-shadow-credit">
                         {formattedDate}
                     </p>
                 </div>

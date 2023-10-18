@@ -10,6 +10,12 @@ export default {
     ],
     theme: {
         extend: {
+            dropShadow: {
+                credit: [
+                    "-0.5px -0.5px 1px rgba(255, 255, 255, 1)",
+                    "0.5px 1px 1px rgba(0, 0, 0, 0.5)",
+                ],
+            },
             backgroundImage: {
                 "gradient-25":
                     "linear-gradient(60deg, var(--tw-gradient-stops))",
