@@ -94,7 +94,7 @@ export const CreditCard = ({
                 <div
                     className={`absolute bg-gradient-25 ${gradientClass} text-[hsl(0,0%,95%)]  w-full  max-w-96 h-56 font-credit px-4 py-6 rounded-xl shadow-2xl max-w-md [transform:rotateY(180deg)] [backface-visibility:hidden]`}
                 >
-                    <div className="bg-white text-text-default p-2 mt-4 flex justify-between items-end">
+                    <div className="bg-white text-text-low-contrast p-2 mt-4 flex justify-between items-end">
                         <p className="text-xl uppercase">
                             {" "}
                             {first + " " + last}
