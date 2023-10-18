@@ -73,7 +73,7 @@ export const CardWrapper = () => {
                                     }
                                     onMouseLeave={() => handleCardHover(null)}
                                 >
-                                    <div className="w-full absolute top-0 left-0 duration-300 ">
+                                    <div className="w-fit absolute top-0 left-0 duration-300 ">
                                         <div
                                             className="opacity-100 min-w-full"
                                             onClick={() =>
@@ -83,7 +83,7 @@ export const CardWrapper = () => {
                                             <CreditCard {...card} user={user} />
                                         </div>
                                         <div
-                                            className={` absolute -top-6 -right-6 ${
+                                            className={` absolute -top-3 -right-3 ${
                                                 card.id === hoveredCard
                                                     ? ""
                                                     : "invisible"
