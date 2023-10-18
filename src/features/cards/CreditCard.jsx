@@ -30,8 +30,8 @@ export const CreditCard = ({
     const gradientClass = getGradientClass(gradient);
 
     return (
-        <div className="group h-96 w-96 [perspective:1000px]">
-            <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        <div className="group h-56 w-full  [perspective:1000px]">
+            <div className="relative  h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                 {
                     // Front CC card
                 }
