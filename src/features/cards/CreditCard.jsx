@@ -26,7 +26,7 @@ export const CreditCard = ({
 
     return (
         <div
-            className={` ${gradientClass} text-white  w-full  max-w-96 h-56 font-credit px-4 py-6 rounded-xl shadow-2xl max-w-md bg-gradient-25  ${
+            className={` ${gradientClass} text-[hsl(0,0%,95%)]  w-full  max-w-96 h-56 font-credit px-4 py-6 rounded-xl shadow-2xl max-w-md bg-gradient-25  ${
                 !useDisplayFormat
                     ? "transition-transform transform sm:hover:scale-105 "
                     : ""
