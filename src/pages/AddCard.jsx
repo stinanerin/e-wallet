@@ -52,14 +52,16 @@ export const AddCard = () => {
                 </p>
             ) : (
                 <>
-                    <CreditCard
-                        {...formData}
-                        user={{
-                            first,
-                            last,
-                        }}
-                        useDisplayFormat={true}
-                    />
+                    <div className="w-full max-w-md">
+                        <CreditCard
+                            {...formData}
+                            user={{
+                                first,
+                                last,
+                            }}
+                            useDisplayFormat={true}
+                        />
+                    </div>
 
                     <Form
                         handleSubmit={handleSubmit}
